@@ -1,0 +1,3234 @@
+/* ==========================================================
+   JHONY & MAURA — DESIGN SYSTEM & STYLESHEET
+   Luxury Entertainment & Cinematic Live Show Experience
+   ========================================================== */
+
+
+/* ==========================================================
+   5. HEADER
+   ========================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease, height 0.3s ease;
+}
+
+.site-header.scrolled {
+    background: rgba(5, 5, 5, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 76px;
+}
+
+.header-container {
+    width: min(var(--container), calc(100% - 8vw));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+}
+
+.brand span {
+    color: var(--color-primary);
+    margin: 0 0.2em;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.main-nav a {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-block: 0.4rem;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--color-white);
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.header-cta {
+    display: inline-block;
+    border: 1px solid var(--color-primary-border);
+    background: rgba(225, 6, 0, 0.08);
+    padding: 0.75rem 1.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-white);
+    transition: all var(--transition);
+}
+
+.header-cta:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary-soft);
+}
+
+/* Hamburger Mobile Toggle */
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+}
+
+.hamburger-bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.menu-toggle.active .hamburger-bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.active .hamburger-bar:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Mobile Drawer */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    height: calc(100svh - 76px);
+    background: rgba(5, 5, 5, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 2.5rem 8vw;
+    border-top: 1px solid var(--color-border);
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-nav.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-nav__links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-link {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--color-text-secondary);
+}
+
+.mobile-link:hover {
+    color: var(--color-primary);
+}
+
+.mobile-cta {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+
+/* ==========================================================
+   6. HERO (IMPACTO)
+   ========================================================== */
+
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.92);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(5, 5, 5, 0.96) 0%,
+            rgba(5, 5, 5, 0.82) 42%,
+            rgba(5, 5, 5, 0.35) 85%,
+            rgba(5, 5, 5, 0.65) 100%),
+        linear-gradient(0deg,
+            rgba(5, 5, 5, 1) 0%,
+            transparent 35%);
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    width: min(var(--container), calc(100% - 8vw));
+    margin-inline: auto;
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+}
+
+.hero-content {
+    max-width: 860px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.26em;
+    margin-bottom: 1.6rem;
+}
+
+.hero-title {
+    font-family: "Manrope", var(--font-heading);
+    font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    text-wrap: balance;
+}
+
+.hero-subtitle {
+    margin-top: 2rem;
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 580px;
+}
+
+.hero-tags {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.tag-item {
+    color: var(--color-text-secondary);
+}
+
+.tag-separator {
+    color: var(--color-primary);
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 2.8rem;
+}
+
+.hero-bottom {
+    position: absolute;
+    left: 4vw;
+    right: 4vw;
+    bottom: 1.8rem;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.hero-badge-live {
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   7. DUO / A DUPLA (QUEM SÃO)
+   ========================================================== */
+.duo-section {
+    padding-block: var(--section-space);
+    background: var(--color-background);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.duo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+}
+
+.duo-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.duo-image {
+    width: 100%;
+    height: 100%;
+    max-height: 640px;
+    object-fit: cover;
+    filter: grayscale(18%) contrast(108%);
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.duo-image-wrapper:hover .duo-image {
+    transform: scale(1.03);
+    filter: grayscale(0%) contrast(105%);
+}
+
+.duo-image-caption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.caption-tag {
+    color: var(--color-primary);
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.caption-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.duo-lead {
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--color-white);
+    margin-bottom: 2.8rem;
+}
+
+.pillars-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2.5rem;
+}
+
+.pillar-item {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.2rem;
+}
+
+.pillar-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.pillar-num {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.pillar-item h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.pillar-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+}
+
+
+/* ==========================================================
+   8. EXPERIENCE (A EXPERIÊNCIA DO SHOW)
+   ========================================================== */
+.experience-section {
+    padding-block: var(--section-space);
+    background: var(--color-surface);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.experience-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-bottom: 4rem;
+}
+
+.phase-card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    padding: clamp(2rem, 3vw, 3rem) 2rem;
+    position: relative;
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.phase-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-border-hover);
+}
+
+.phase-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.08);
+    line-height: 1;
+}
+
+.phase-step {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.phase-card h3 {
+    font-size: 1.45rem;
+    margin-bottom: 1rem;
+}
+
+.phase-card p {
+    font-size: 0.94rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Bento Gallery de fotos reais */
+.experience-gallery {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 250px 250px;
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.gallery-item--large {
+    grid-row: 1 / span 2;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(5, 5, 5, 0.85) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    pointer-events: none;
+}
+
+.gallery-overlay span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+}
+
+.experience-context {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.experience-context p {
+    font-size: 1.05rem;
+    max-width: 820px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+
+/* ==========================================================
+   9. STRUCTURE (PRODUÇÃO & BASTIDORES)
+   ========================================================== */
+.structure-section {
+    padding-block: var(--section-space);
+    background: var(--color-background);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+}
+
+.structure-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 2.5rem 2rem;
+    transition: all var(--transition);
+}
+
+.structure-card:hover {
+    border-color: var(--color-primary);
+    background: var(--color-surface-elevated);
+}
+
+.structure-num {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+}
+
+.structure-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.9rem;
+}
+
+.structure-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   10. REPERTOIRE (VERSATILIDADE MUSICAL)
+   ========================================================== */
+.repertoire-section {
+    padding-block: var(--section-space);
+    background: var(--color-surface);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+
+.marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-block: 2.5rem 3.5rem;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+}
+
+.marquee-track--left {
+    animation: marqueeLeft 42s linear infinite;
+}
+
+.marquee-track--right {
+    animation: marqueeRight 42s linear infinite;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.genre-tag {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition);
+}
+
+.genre-tag:hover {
+    color: var(--color-primary);
+}
+
+.genre-dot {
+    color: var(--color-primary);
+    font-size: 0.85rem;
+}
+
+.repertoire-footer {
+    text-align: center;
+}
+
+.repertoire-footer p {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+
+/* ==========================================================
+   11. AUTHORITY (TRAJETÓRIA & CARDS DE TV)
+   ========================================================== */
+.authority-section {
+    padding-block: var(--section-space);
+    background: var(--color-background);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.authority-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.authority-card {
+    background: var(--color-surface-mid);
+    border: 1px solid var(--color-border);
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all var(--transition);
+}
+
+.authority-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+}
+
+.authority-card--featured {
+    grid-column: span 4;
+    background: linear-gradient(135deg, rgba(225, 6, 0, 0.08) 0%, rgba(5, 5, 5, 0.85) 65%);
+    border-color: var(--color-primary-border);
+    padding: clamp(2.5rem, 4vw, 3.8rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.authority-card__badge {
+    color: var(--color-primary);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.authority-card__big-num {
+    font-family: var(--font-heading);
+    font-size: clamp(4.5rem, 8vw, 8rem);
+    font-weight: 800;
+    line-height: 0.85;
+    color: var(--color-primary);
+    letter-spacing: -0.05em;
+}
+
+.authority-card--featured h3 {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    margin-bottom: 0.8rem;
+}
+
+.authority-card--featured p {
+    font-size: 1.05rem;
+    max-width: 650px;
+    line-height: 1.65;
+}
+
+.authority-card__media-tag {
+    color: var(--color-primary);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.4rem;
+}
+
+.authority-card__brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.authority-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+}
+
+
+/* ==========================================================
+   12. BOOKING / CONVERSÃO & FORMULÁRIO
+   ========================================================== */
+.booking-section {
+    padding-block: var(--section-space);
+    background: var(--color-surface);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.booking-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: flex-start;
+    margin-bottom: 5rem;
+}
+
+.booking-title {
+    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+}
+
+.booking-title span {
+    color: var(--color-primary);
+}
+
+.booking-desc {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+}
+
+.direct-contact-box {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.direct-contact-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.btn-whatsapp-direct {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.6rem;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    color: #25d366;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all var(--transition);
+}
+
+.btn-whatsapp-direct:hover {
+    background: #25d366;
+    color: #050505;
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-icon {
+    font-size: 1.2rem;
+}
+
+/* Card do Formulário */
+.booking-card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    padding: clamp(2rem, 3.5vw, 3.2rem);
+}
+
+.booking-card__title {
+    font-size: 1.7rem;
+    margin-bottom: 0.4rem;
+}
+
+.booking-card__subtitle {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+
+
+.btn-submit {
+    width: 100%;
+    margin-top: 0.8rem;
+    padding-block: 1.25rem;
+}
+
+
+/* ==========================================================
+   13. FAQ (ACCORDION MINIMALISTA)
+   ========================================================== */
+.faq-section {
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--color-border);
+    max-width: 920px;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.faq-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+}
+
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition);
+}
+
+.faq-item[open] {
+    border-color: var(--color-border-hover);
+}
+
+.faq-question {
+    list-style: none;
+    padding: 1.4rem 1.8rem;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-icon {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 400;
+    transition: transform var(--transition);
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.8rem 1.6rem;
+    color: var(--color-text-secondary);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+
+/* ==========================================================
+   14. FOOTER
+   ========================================================== */
+.site-footer {
+    padding-block: 4.5rem 3rem;
+    background: var(--color-background);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: clamp(30px, 5vw, 80px);
+}
+
+.footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.footer-brand span {
+    color: var(--color-primary);
+}
+
+.footer-tagline {
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+.footer-col-title {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+}
+
+.footer-links,
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-links a,
+.footer-social a {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: var(--color-white);
+    padding-left: 4px;
+}
+
+
+
+
+/* ==========================================================
+   16. RESPONSIVE BREAKPOINTS
+   ========================================================== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .duo-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .duo-image-wrapper {
+        max-width: 580px;
+    }
+
+    .experience-phases {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .authority-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .authority-card--featured {
+        grid-column: span 2;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 76px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .pillars-list {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .gallery-item--large {
+        grid-row: auto;
+        height: 280px;
+    }
+
+    .gallery-item {
+        height: 220px;
+    }
+
+    .structure-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .authority-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .authority-card--featured {
+        grid-column: span 1;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+
+/* ==========================================================
+   MARQUEE — FORÇA MOVIMENTO CONTÍNUO
+   ========================================================== */
+
+.marquee-track--left {
+    animation: marqueeLeft 42s linear infinite !important;
+    animation-play-state: running !important;
+}
+
+.marquee-track--right {
+    animation: marqueeRight 42s linear infinite !important;
+    animation-play-state: running !important;
+}
+
+/* ==========================================================
+   EXPERIENCE PAGES — FOUNDATION EXTENSION
+   ========================================================== */
+
+.experience-page {
+    min-height: 100vh;
+    background: var(--color-background);
+    color: var(--color-white);
+}
+
+.experience-page__header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: var(--header-height);
+    width: min(var(--container), calc(100% - 8vw));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 5, 5, .9);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.experience-page__back {
+    color: var(--color-text-secondary);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.experience-page__back:hover {
+    color: var(--color-primary);
+}
+
+.experience-page__brand {
+    font-family: var(--font-heading);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+.experience-page__intro {
+    width: min(var(--container), calc(100% - 8vw));
+    margin-inline: auto;
+    padding: clamp(75px, 11vw, 150px) 0 65px;
+}
+
+.experience-page__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.35rem;
+    color: var(--color-primary);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.experience-page__eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--color-primary);
+}
+
+.experience-page__title {
+    max-width: 1000px;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+}
+
+.experience-page__lead {
+    max-width: 680px;
+    margin-top: 1.7rem;
+    color: var(--color-text-secondary);
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    line-height: 1.75;
+}
+
+.experience-page__cover {
+    width: min(var(--container), calc(100% - 8vw));
+    margin: 0 auto clamp(55px, 8vw, 105px);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-mid);
+}
+
+.experience-page__cover img {
+    display: block;
+    width: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+.experience-page__gallery {
+    width: min(var(--container), calc(100% - 8vw));
+    margin: 0 auto clamp(80px, 11vw, 150px);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+}
+
+.experience-page__gallery figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-mid);
+}
+
+.experience-page__gallery figure:nth-child(1) {
+    grid-column: span 7;
+    grid-row: span 2;
+}
+
+.experience-page__gallery figure:nth-child(2),
+.experience-page__gallery figure:nth-child(3) {
+    grid-column: span 5;
+}
+
+.experience-page__gallery figure:nth-child(n+4) {
+    grid-column: span 4;
+}
+
+.experience-page__gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.16, 1, .3, 1),
+        filter .7s ease;
+}
+
+.experience-page__gallery figure:first-child img {
+    min-height: 540px;
+}
+
+.experience-page__gallery figure:hover img {
+    transform: scale(1.045);
+    filter: saturate(1.08) contrast(1.05);
+}
+
+.experience-page__gallery figure::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .45s ease;
+}
+
+.experience-page__gallery figure:hover::after {
+    transform: scaleX(1);
+}
+
+.experience-page__closing {
+    width: min(var(--container), calc(100% - 8vw));
+    margin: 0 auto;
+    padding: 0 0 clamp(80px, 11vw, 150px);
+    text-align: center;
+}
+
+.experience-page__closing p {
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    color: var(--color-text-secondary);
+}
+
+
+
+@media (max-width: 768px) {
+
+    .experience-page__header,
+    .experience-page__intro,
+    .experience-page__cover,
+    .experience-page__gallery,
+    .experience-page__closing {
+        width: calc(100% - 10vw);
+    }
+
+    .experience-page__header {
+        min-height: 76px;
+    }
+
+    .experience-page__title {
+        font-size: clamp(2.7rem, 13vw, 4.6rem);
+    }
+
+    .experience-page__cover img {
+        aspect-ratio: 4 / 3;
+    }
+
+    .experience-page__gallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .experience-page__gallery figure,
+    .experience-page__gallery figure:nth-child(1),
+    .experience-page__gallery figure:nth-child(2),
+    .experience-page__gallery figure:nth-child(3),
+    .experience-page__gallery figure:nth-child(n+4) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .experience-page__gallery img,
+    .experience-page__gallery figure:first-child img {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+.quinze-anos-page {
+    background:
+        radial-gradient(circle at 80% 8%, rgba(225, 6, 0, .12), transparent 30%),
+        var(--color-background);
+}
+
+
+
+/* =========================================================
+   CAPA FULL WIDTH (Casamento & 15 Anos)
+   ========================================================= */
+
+.casamento-page .experience-page__hero,
+.quinze-anos-page .experience-page__hero {
+    display: block;
+    width: 100%;
+}
+
+.casamento-page .experience-page__cover,
+.quinze-anos-page .experience-page__cover {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.casamento-page .experience-page__cover img,
+.quinze-anos-page .experience-page__cover img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    object-fit: cover;
+}
+
+/* ==========================================================
+   PÁGINA CORPORATIVO
+   Jhony & Maura — Premium Corporate Experience
+   ========================================================== */
+
+
+/* ==========================================================
+   1. BASE DA PÁGINA
+   ========================================================== */
+
+.corporativo-page {
+    width: 100%;
+    background: #080808;
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   2. HERO
+   ========================================================== */
+
+.corporativo-hero {
+    position: relative;
+    min-height: 92vh;
+    min-height: 92svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    isolation: isolate;
+    background: #050505;
+}
+
+
+/* Imagem */
+
+.corporativo-hero__image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.corporativo-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    transform: scale(1.03);
+    filter: brightness(.82) contrast(1.04);
+
+    transition:
+        transform 1.2s cubic-bezier(.16, 1, .3, 1),
+        filter 1.2s ease;
+}
+
+
+/* Overlay cinematográfico */
+
+.corporativo-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(90deg,
+            rgba(5, 5, 5, .92) 0%,
+            rgba(5, 5, 5, .64) 38%,
+            rgba(5, 5, 5, .18) 72%,
+            rgba(5, 5, 5, .48) 100%),
+        linear-gradient(0deg,
+            rgba(5, 5, 5, .96) 0%,
+            rgba(5, 5, 5, .28) 42%,
+            rgba(5, 5, 5, .15) 100%);
+}
+
+
+/* Conteúdo */
+
+.corporativo-hero__content {
+    width: min(var(--container), calc(100% - 8vw));
+    margin-inline: auto;
+
+    padding-top: calc(var(--header-height) + 4rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
+
+    max-width: 900px;
+}
+
+
+.corporativo-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+
+    color: #fff;
+
+    font-size: .72rem;
+    font-weight: 800;
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.corporativo-hero__eyebrow::before {
+    content: "";
+
+    width: 34px;
+    height: 2px;
+
+    background: var(--color-primary);
+
+    flex-shrink: 0;
+}
+
+
+.corporativo-hero h1 {
+    max-width: 850px;
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(2.8rem,
+            6vw,
+            6.3rem);
+
+    line-height: 1.02;
+    letter-spacing: -.045em;
+
+    text-wrap: balance;
+}
+
+
+.corporativo-hero h1 strong {
+    display: block;
+    color: var(--color-primary);
+}
+
+
+.corporativo-hero p {
+    max-width: 620px;
+
+    margin-top: 1.8rem;
+
+    color: rgba(255, 255, 255, .76);
+
+    font-size: clamp(1rem,
+            1.45vw,
+            1.25rem);
+
+    line-height: 1.75;
+}
+
+
+/* ==========================================================
+   3. INTRODUÇÃO
+   ========================================================== */
+
+.corporativo-intro {
+    position: relative;
+
+    padding:
+        clamp(6rem, 11vw, 11rem) 0;
+
+    background: #f3efe9;
+    color: #151515;
+
+    overflow: hidden;
+}
+
+
+/* detalhe decorativo */
+
+.corporativo-intro::before {
+    content: "CORPORATE EXPERIENCE";
+
+    position: absolute;
+
+    right: -2rem;
+    top: 50%;
+
+    transform: translateY(-50%) rotate(-90deg);
+
+    color: rgba(0, 0, 0, .045);
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(3rem,
+            7vw,
+            7rem);
+
+    font-weight: 800;
+
+    letter-spacing: .04em;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+
+.corporativo-intro__content {
+    width: min(920px, calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.corporativo-intro .section-eyebrow {
+    color: #8c1a16;
+}
+
+
+.corporativo-intro .section-eyebrow::before {
+    background: #8c1a16;
+}
+
+
+.corporativo-intro h2 {
+    max-width: 850px;
+
+    color: #111;
+
+    font-size: clamp(2.3rem,
+            5vw,
+            5rem);
+
+    line-height: 1.05;
+}
+
+
+.corporativo-intro h2 strong {
+    color: #8c1a16;
+}
+
+
+.corporativo-intro p {
+    max-width: 700px;
+
+    margin-top: 2rem;
+
+    color: rgba(20, 20, 20, .65);
+
+    font-size: clamp(1rem,
+            1.3vw,
+            1.18rem);
+
+    line-height: 1.85;
+}
+
+
+/* ==========================================================
+   4. CABEÇALHO DA GALERIA
+   ========================================================== */
+
+.corporativo-gallery {
+    padding:
+        clamp(6rem, 10vw, 10rem) 0;
+
+    background: #080808;
+}
+
+
+.corporativo-gallery__header {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    margin-bottom: clamp(3.5rem,
+            7vw,
+            7rem);
+}
+
+
+.corporativo-gallery__header .section-eyebrow {
+    color: var(--color-primary);
+}
+
+
+.corporativo-gallery__header h2 {
+    max-width: 900px;
+
+    font-size: clamp(2.5rem,
+            5vw,
+            5rem);
+
+    line-height: 1;
+}
+
+
+.corporativo-gallery__header p {
+    max-width: 600px;
+
+    margin-top: 1.3rem;
+
+    color: var(--color-text-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   5. GALERIA — COMPOSIÇÃO EDITORIAL
+   ========================================================== */
+
+.corporativo-gallery__grid {
+    width: min(1180px, calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(5rem,
+            10vw,
+            11rem);
+}
+
+
+/* Cada imagem */
+
+.corporativo-gallery__item {
+    position: relative;
+
+    margin: 0;
+
+    width: 78%;
+
+    overflow: visible;
+}
+
+
+/* Alternância elegante */
+
+.corporativo-gallery__item:nth-child(2) {
+    width: 62%;
+    margin-left: auto;
+}
+
+
+.corporativo-gallery__item:nth-child(3) {
+    width: 82%;
+    margin-left: 7%;
+}
+
+
+/* Imagem */
+
+.corporativo-gallery__image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+
+
+.corporativo-gallery__item:nth-child(1) .corporativo-gallery__image {
+    aspect-ratio: 16 / 10;
+}
+
+
+.corporativo-gallery__item:nth-child(2) .corporativo-gallery__image {
+    aspect-ratio: 4 / 5;
+}
+
+
+.corporativo-gallery__item:nth-child(3) .corporativo-gallery__image {
+    aspect-ratio: 16 / 10;
+}
+
+
+.corporativo-gallery__image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            transparent 60%,
+            rgba(0, 0, 0, .35));
+
+    pointer-events: none;
+}
+
+
+.corporativo-gallery__image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s cubic-bezier(.16, 1, .3, 1),
+        filter .8s ease;
+
+    filter: saturate(.94) contrast(1.04);
+}
+
+
+.corporativo-gallery__item:hover .corporativo-gallery__image img {
+    transform: scale(1.045);
+    filter: saturate(1) contrast(1.06);
+}
+
+
+/* ==========================================================
+   6. LEGENDA DAS FOTOS
+   ========================================================== */
+
+.corporativo-gallery__item figcaption {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1.2rem;
+
+    color: rgba(255, 255, 255, .82);
+}
+
+
+.corporativo-gallery__item figcaption span {
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: .72rem;
+
+    font-weight: 800;
+
+    letter-spacing: .15em;
+}
+
+
+.corporativo-gallery__item figcaption strong {
+    font-family: var(--font-heading);
+
+    font-size: .9rem;
+
+    font-weight: 700;
+
+    letter-spacing: .02em;
+}
+
+
+/* ==========================================================
+   7. EXPERIÊNCIA
+   ========================================================== */
+
+.corporativo-experience {
+    padding:
+        clamp(6rem, 11vw, 10rem) 0;
+
+    background: #111;
+
+    border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+.corporativo-experience__content {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    max-width: 850px;
+}
+
+
+.corporativo-experience__content h2 {
+    font-size: clamp(2.5rem,
+            5vw,
+            5rem);
+
+    line-height: 1;
+}
+
+
+.corporativo-experience__content h2 strong {
+    color: var(--color-primary);
+}
+
+
+.corporativo-experience__content p {
+    max-width: 650px;
+
+    margin-top: 1.6rem;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* ==========================================================
+   8. CARDS DE EXPERIÊNCIA
+   ========================================================== */
+
+.corporativo-experience__features {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin:
+        clamp(4rem, 7vw, 7rem) auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: rgba(255, 255, 255, .1);
+
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+
+
+.corporativo-feature {
+    min-height: 270px;
+
+    padding:
+        clamp(2rem, 4vw, 3.5rem);
+
+    background: #080808;
+
+    transition:
+        background .4s ease,
+        transform .4s ease;
+}
+
+
+.corporativo-feature:hover {
+    background: #101010;
+
+    transform: translateY(-5px);
+}
+
+
+.corporativo-feature>span {
+    display: block;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: .72rem;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+
+    margin-bottom: 3rem;
+}
+
+
+.corporativo-feature h3 {
+    font-size: clamp(1.3rem,
+            2vw,
+            1.7rem);
+
+    margin-bottom: 1rem;
+}
+
+
+.corporativo-feature p {
+    color: var(--color-text-muted);
+
+    font-size: .92rem;
+
+    line-height: 1.7;
+
+    max-width: 320px;
+}
+
+
+/* ==========================================================
+   9. CTA FINAL
+   ========================================================== */
+
+.corporativo-cta {
+    position: relative;
+
+    padding:
+        clamp(7rem, 13vw, 13rem) 0;
+
+    background:
+        radial-gradient(circle at 50% 40%,
+            rgba(225, 6, 0, .12),
+            transparent 42%),
+        #050505;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* Linha decorativa */
+
+.corporativo-cta::before,
+.corporativo-cta::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: min(900px, 80%);
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, .16),
+            transparent);
+
+    transform: translateX(-50%);
+}
+
+
+.corporativo-cta::before {
+    top: 0;
+}
+
+
+.corporativo-cta::after {
+    bottom: 0;
+}
+
+
+.corporativo-cta__content {
+    width: min(900px, calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.corporativo-cta .section-eyebrow {
+    color: var(--color-primary);
+}
+
+
+.corporativo-cta h2 {
+    font-size: clamp(2.6rem,
+            5.5vw,
+            5.8rem);
+
+    line-height: 1;
+
+    text-wrap: balance;
+}
+
+
+.corporativo-cta h2 strong {
+    display: block;
+
+    color: var(--color-primary);
+}
+
+
+.corporativo-cta p {
+    max-width: 620px;
+
+    margin:
+        1.7rem auto 2.5rem;
+
+    color: var(--color-text-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* Botão */
+
+.corporativo-cta__button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        1.15rem 2rem;
+
+    background: var(--color-primary);
+
+    color: #fff;
+
+    border: 1px solid var(--color-primary);
+
+    font-size: .76rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.corporativo-cta__button:hover {
+    background: var(--color-primary-hover);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(225, 6, 0, .25);
+}
+
+
+/* ==========================================================
+   10. RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    .corporativo-hero {
+        min-height: 82vh;
+        min-height: 82svh;
+    }
+
+
+    .corporativo-gallery__item,
+    .corporativo-gallery__item:nth-child(2),
+    .corporativo-gallery__item:nth-child(3) {
+        width: 86%;
+    }
+
+
+    .corporativo-gallery__item:nth-child(2) {
+        margin-left: auto;
+    }
+
+
+    .corporativo-gallery__item:nth-child(3) {
+        margin-left: 4%;
+    }
+
+
+    .corporativo-experience__features {
+        grid-template-columns: 1fr;
+    }
+
+
+    .corporativo-feature {
+        min-height: auto;
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .corporativo-hero {
+        min-height: 82svh;
+
+        align-items: flex-end;
+    }
+
+
+    .corporativo-hero__image img {
+        object-position: center;
+        transform: scale(1.01);
+    }
+
+
+    .corporativo-hero__overlay {
+        background:
+            linear-gradient(0deg,
+                rgba(5, 5, 5, .96) 0%,
+                rgba(5, 5, 5, .68) 48%,
+                rgba(5, 5, 5, .25) 100%);
+    }
+
+
+    .corporativo-hero__content {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+    }
+
+
+    .corporativo-hero h1 {
+        font-size: clamp(2.4rem,
+                10vw,
+                3.6rem);
+    }
+
+
+    .corporativo-hero p {
+        font-size: .96rem;
+        line-height: 1.65;
+    }
+
+
+    .corporativo-intro {
+        padding-block: 5.5rem;
+    }
+
+
+    .corporativo-intro::before {
+        display: none;
+    }
+
+
+    .corporativo-intro h2 {
+        font-size: clamp(2.2rem,
+                9vw,
+                3.2rem);
+    }
+
+
+    .corporativo-gallery {
+        padding-block: 5.5rem;
+    }
+
+
+    .corporativo-gallery__header {
+        margin-bottom: 3.5rem;
+    }
+
+
+    .corporativo-gallery__header h2 {
+        font-size: clamp(2.2rem,
+                9vw,
+                3.4rem);
+    }
+
+
+    /*
+       Mobile:
+       empilhamento vertical completo.
+    */
+
+    .corporativo-gallery__grid {
+        width: calc(100% - 10vw);
+
+        gap: 4.5rem;
+    }
+
+
+    .corporativo-gallery__item,
+    .corporativo-gallery__item:nth-child(2),
+    .corporativo-gallery__item:nth-child(3) {
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+    .corporativo-gallery__item:nth-child(1) .corporativo-gallery__image,
+    .corporativo-gallery__item:nth-child(3) .corporativo-gallery__image {
+        aspect-ratio: 4 / 3;
+    }
+
+
+    .corporativo-gallery__item:nth-child(2) .corporativo-gallery__image {
+        aspect-ratio: 4 / 5;
+    }
+
+
+    .corporativo-gallery__item figcaption {
+        margin-top: .9rem;
+    }
+
+
+    .corporativo-experience {
+        padding-block: 5.5rem;
+    }
+
+
+    .corporativo-experience__content h2 {
+        font-size: clamp(2.3rem,
+                9vw,
+                3.5rem);
+    }
+
+
+    .corporativo-experience__features {
+        width: calc(100% - 10vw);
+
+        margin-top: 3.5rem;
+    }
+
+
+    .corporativo-feature {
+        padding: 2rem;
+    }
+
+
+    .corporativo-feature>span {
+        margin-bottom: 2rem;
+    }
+
+
+    .corporativo-cta {
+        padding-block: 6rem;
+    }
+
+
+    .corporativo-cta h2 {
+        font-size: clamp(2.4rem,
+                9vw,
+                3.6rem);
+    }
+
+
+    .corporativo-cta__button {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .corporativo-hero__image img,
+    .corporativo-gallery__image img,
+    .corporativo-feature,
+    .corporativo-cta__button {
+        transition: none !important;
+    }
+
+
+    .corporativo-gallery__item:hover .corporativo-gallery__image img {
+        transform: none;
+    }
+
+
+    .corporativo-feature:hover,
+    .corporativo-cta__button:hover {
+        transform: none;
+    }
+
+}
+
+/* ==========================================================
+   EXPERIENCE PAGES — AJUSTES CORPORATIVO
+   ========================================================== */
+
+.experience-page {
+    min-height: 100vh;
+    background: var(--color-background);
+    color: var(--color-white);
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.experience-page__header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: min(var(--container), calc(100% - 8vw));
+    min-height: var(--header-height);
+
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 5, 5, 0.92);
+
+    border-bottom: 1px solid var(--color-border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.experience-page__back {
+    color: var(--color-text-secondary);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    transition: color var(--transition);
+}
+
+.experience-page__back:hover {
+    color: var(--color-primary);
+}
+
+.experience-page__brand {
+    font-family: var(--font-heading);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* ==========================================================
+   HERO / CAPA
+   ========================================================== */
+
+.experience-page__hero {
+    width: 100%;
+}
+
+
+.experience-page__cover:hover img {
+    transform: scale(1.015);
+}
+
+
+/* ==========================================================
+   APRESENTAÇÃO
+   ========================================================== */
+
+.experience-page__presentation {
+    width: 100%;
+
+    padding-bottom: clamp(80px, 11vw, 150px);
+}
+
+.experience-page__intro {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    padding: clamp(40px, 5vw, 70px) 0 0;
+}
+
+.experience-page__eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 1.35rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.experience-page__eyebrow::before {
+    content: "";
+
+    width: 28px;
+    height: 2px;
+
+    background: var(--color-primary);
+}
+
+.experience-page__title {
+    max-width: 1000px;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    text-wrap: balance;
+}
+
+.experience-page__lead {
+    max-width: 680px;
+
+    margin-top: 1.7rem;
+
+    color: var(--color-text-secondary);
+
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+
+    line-height: 1.75;
+}
+
+
+/* ==========================================================
+   EXPERIÊNCIA
+   ========================================================== */
+
+.experience-page__experience {
+    width: 100%;
+
+    padding-bottom: clamp(90px, 12vw, 170px);
+
+    background:
+        linear-gradient(180deg,
+            var(--color-background) 0%,
+            var(--color-surface) 100%);
+}
+
+.experience-page__experience-content {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    padding-bottom: clamp(45px, 6vw, 80px);
+}
+
+
+/* ==========================================================
+   MÍDIA
+   ========================================================== */
+
+.experience-page__media {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin-inline: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.experience-page__media-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: var(--color-surface-mid);
+    border: 1px solid var(--color-border);
+}
+
+.experience-page__media-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 420px;
+
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+
+    transition:
+        transform 0.8s cubic-bezier(.16, 1, .3, 1),
+        filter 0.8s ease;
+}
+
+.experience-page__media-item:hover img {
+    transform: scale(1.035);
+
+    filter:
+        saturate(1.08) contrast(1.04);
+}
+
+
+/* Primeiro destaque */
+
+
+
+/* Linha vermelha elegante */
+
+.experience-page__media-item::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--color-primary);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.45s ease;
+}
+
+.experience-page__media-item:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* ==========================================================
+   FECHAMENTO
+   ========================================================== */
+
+.experience-page__closing {
+    width: min(var(--container), calc(100% - 8vw));
+
+    margin: 0 auto;
+
+    padding:
+        0 0 clamp(80px, 11vw, 150px);
+
+    text-align: center;
+}
+
+.experience-page__closing p {
+    max-width: 680px;
+
+    margin: 0 auto 2rem;
+
+    color: var(--color-text-secondary);
+
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   CORPORATIVO — PEQUENO REFINAMENTO
+   ========================================================== */
+
+.corporativo-page .experience-page__cover {
+    border-color: rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.corporativo-page .experience-page__cover img {
+    object-position: center center;
+}
+
+.corporativo-page .experience-page__media-item {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .experience-page__header,
+    .experience-page__intro,
+    .experience-page__cover,
+    .experience-page__media,
+    .experience-page__experience-content,
+    .experience-page__closing {
+        width: calc(100% - 10vw);
+    }
+
+    .experience-page__header {
+        min-height: 76px;
+    }
+
+    .experience-page__brand {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+    }
+
+    .experience-page__cover {
+        margin-bottom: 55px;
+    }
+
+    .quinze-anos-page .experience-page__cover img,
+    .corporativo-page .experience-page__cover img {
+        aspect-ratio: 4 / 3;
+    }
+
+    .casamento-page .experience-page__cover img {
+        aspect-ratio: auto;
+    }
+
+    .experience-page__intro {
+        padding-top: 20px;
+    }
+
+    .experience-page__title {
+        font-size: clamp(2.7rem, 13vw, 4.6rem);
+    }
+
+    .experience-page__lead {
+        font-size: 1rem;
+    }
+
+    .experience-page__media {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .experience-page__media-item,
+    .experience-page__media-item:first-child {
+        grid-column: 1;
+    }
+
+    .experience-page__media-item img,
+    .experience-page__media-item:first-child img {
+        min-height: 0;
+
+        aspect-ratio: 4 / 3;
+    }
+}
+
+
+/* ==========================================================
+   EXPERIENCE PAGE — CORREÇÃO DEFINITIVA
+   ========================================================== */
+
+.experience-page {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #050505;
+    color: #fff;
+}
+
+.experience-page__header {
+    width: calc(100% - 8vw);
+    min-height: 90px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 5, 5, .94);
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.experience-page__hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.experience-page__cover {
+    width: calc(100% - 8vw);
+    max-width: 1360px;
+
+    margin: 0 auto 100px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    background: #121212;
+
+    box-sizing: border-box;
+}
+
+.experience-page__cover img {
+    display: block;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    height: auto !important;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+.quinze-anos-page .experience-page__cover img,
+.corporativo-page .experience-page__cover img {
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+}
+
+.casamento-page .experience-page__cover img {
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+
+/* ==========================================================
+   APRESENTAÇÃO
+   ========================================================== */
+
+.experience-page__presentation {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 150px;
+}
+
+.experience-page__intro {
+    width: calc(100% - 8vw);
+    max-width: 1360px;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   TEXTO
+   ========================================================== */
+
+.experience-page__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 1.35rem;
+
+    color: #e10600;
+
+    font-size: .7rem;
+    font-weight: 800;
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.experience-page__eyebrow::before {
+    content: "";
+
+    width: 28px;
+    height: 2px;
+
+    background: #e10600;
+}
+
+.experience-page__title {
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: .98;
+
+    letter-spacing: -.055em;
+}
+
+.experience-page__lead {
+    max-width: 680px;
+
+    margin-top: 1.7rem;
+
+    color: rgba(255, 255, 255, .78);
+
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+
+    line-height: 1.75;
+}
+
+
+/* ==========================================================
+   EXPERIÊNCIA
+   ========================================================== */
+
+.experience-page__experience {
+    width: 100%;
+
+    margin: 0;
+    padding: 0 0 150px;
+
+    background: #0d0d0d;
+}
+
+.experience-page__experience-content {
+    width: calc(100% - 8vw);
+    max-width: 1360px;
+
+    margin: 0 auto;
+    padding: 100px 0 60px;
+}
+
+
+
+
+
+/* ==========================================================
+   FECHAMENTO
+   ========================================================== */
+
+.experience-page__closing {
+    width: calc(100% - 8vw);
+    max-width: 1360px;
+
+    margin: 0 auto;
+
+    padding: 0 0 150px;
+
+    text-align: center;
+}
+
+.experience-page__closing p {
+    max-width: 680px;
+
+    margin: 0 auto 2rem;
+
+    color: rgba(255, 255, 255, .78);
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .experience-page__header {
+        width: calc(100% - 10vw);
+        min-height: 76px;
+    }
+
+    .experience-page__cover,
+    .experience-page__intro,
+    .experience-page__experience-content,
+    .experience-page__media,
+    .experience-page__closing {
+        width: calc(100% - 10vw);
+    }
+
+    .experience-page__cover {
+        margin-bottom: 65px;
+    }
+
+    .quinze-anos-page .experience-page__cover img,
+    .corporativo-page .experience-page__cover img {
+        aspect-ratio: 4 / 3;
+    }
+
+    .casamento-page .experience-page__cover img {
+        aspect-ratio: auto;
+    }
+
+    .experience-page__presentation {
+        padding-bottom: 100px;
+    }
+
+    .experience-page__title {
+        font-size: clamp(2.7rem, 13vw, 4.6rem);
+    }
+
+    .experience-page__experience-content {
+        padding-top: 70px;
+    }
+
+    .experience-page__media {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .experience-page__media-item img {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .experience-page__closing {
+        padding-bottom: 100px;
+    }
+}
+
+
+/* ==========================================================
+   NAVEGAÇÃO — EVENTOS
+   ========================================================== */
+
+.nav-dropdown {
+    position: relative;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* Botão EVENTOS */
+
+.nav-dropdown summary {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    list-style: none;
+    cursor: pointer;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition: color var(--transition);
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-dropdown summary:hover {
+    color: var(--color-white);
+}
+
+
+/* Seta */
+
+.nav-dropdown__arrow {
+    font-size: 0.9rem;
+
+    transition:
+        transform var(--transition),
+        color var(--transition);
+}
+
+.nav-dropdown[open] .nav-dropdown__arrow {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+}
+
+
+/* ==========================================================
+   MENU SUSPENSO
+   ========================================================== */
+
+.nav-dropdown__menu {
+    position: absolute;
+
+    top: calc(100% + 1px);
+    left: 50%;
+
+    min-width: 210px;
+
+    transform: translateX(-50%);
+
+    padding: 0.6rem;
+
+    background: rgba(10, 10, 10, 0.97);
+
+    border: 1px solid var(--color-border);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    z-index: 200;
+}
+
+
+/* Itens */
+
+.nav-dropdown__menu a {
+    display: flex;
+
+    width: 100%;
+
+    padding: 0.85rem 1rem;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.nav-dropdown__menu a:hover {
+    color: var(--color-white);
+
+    background: var(--color-primary-soft);
+}
+
+
+/* Linha vermelha */
+
+.nav-dropdown__menu a::before {
+    content: "";
+
+    width: 0;
+    height: 1px;
+
+    margin-right: 0;
+
+    align-self: center;
+
+    background: var(--color-primary);
+
+    transition:
+        width var(--transition),
+        margin-right var(--transition);
+}
+
+.nav-dropdown__menu a:hover::before {
+    width: 14px;
+    margin-right: 8px;
+}
+
+/* ==========================================================
+   GALERIA DO SHOW — FOTOS VERTICAIS
+   ========================================================== */
+
+.experience-gallery {
+    display: grid;
+
+    grid-template-columns: 1.35fr 1fr;
+    grid-template-rows: repeat(2, minmax(320px, 1fr));
+
+    gap: 16px;
+}
+
+
+/* Card principal */
+
+.experience-gallery .gallery-item--large {
+    grid-row: span 2;
+}
+
+
+/* Cards */
+
+.experience-gallery .gallery-item {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    background: #050505;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* Imagens */
+
+.experience-gallery .gallery-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .experience-gallery {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto;
+
+        gap: 14px;
+    }
+
+    .experience-gallery .gallery-item--large {
+        grid-row: auto;
+    }
+
+    .experience-gallery .gallery-item {
+        aspect-ratio: 4 / 5;
+    }
+
+    .experience-gallery .gallery-item--large {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+
+   

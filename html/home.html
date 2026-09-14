@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jhony & Maura | Banda e Show Ao Vivo para Grandes Eventos</title>
+
+    <meta name="description"
+        content="Jhony & Maura — Mais de 20 anos como profissionais da música. Um show ao vivo eletrizante, banda completa e repertório envolvente para transformar seu evento em um espetáculo inesquecível.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Foundation -->
+    <link rel="stylesheet" href="../foundation/foundation.css">
+
+    <!-- Folha de Estilos -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* ==========================================================
+           EXPERIÊNCIA — CASAMENTOS
+           ========================================================== */
+        .casamentos-section {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(5rem, 9vw, 9rem) 0;
+            background: #f4f0eb;
+            color: #161616;
+            border-top: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .casamentos-inner {
+            width: min(var(--container), calc(100% - 8vw));
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr);
+            gap: clamp(2.5rem, 6vw, 7rem);
+            align-items: center;
+        }
+
+        .casamentos-content {
+            max-width: 560px;
+        }
+
+        .casamentos-content .section-eyebrow {
+            color: #8f6b4f;
+        }
+
+        .casamentos-content .section-title {
+            color: #151515;
+        }
+
+        .casamentos-content .section-title span {
+            color: #9b6d49;
+        }
+
+        .casamentos-content>p {
+            margin: 1.5rem 0 2rem;
+            max-width: 510px;
+            color: rgba(20, 20, 20, .66);
+            line-height: 1.8;
+        }
+
+        .casamentos-cover {
+            position: relative;
+            overflow: hidden;
+            background: #ddd5cc;
+            aspect-ratio: 3 / 2;
+        }
+
+        .casamentos-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .casamentos-gallery {
+            width: min(var(--container), calc(100% - 8vw));
+            margin: clamp(2.5rem, 5vw, 5rem) auto 0;
+            display: grid;
+            grid-template-columns: 1.35fr .85fr;
+            gap: 1rem;
+        }
+
+        .casamentos-photo {
+            margin: 0;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #ddd5cc;
+        }
+
+        .casamentos-photo--large {
+            aspect-ratio: 16 / 9;
+        }
+
+        .casamentos-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s ease;
+        }
+
+        .casamentos-photo:hover img {
+            transform: scale(1.025);
+        }
+
+        @media (max-width: 820px) {
+            .casamentos-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .casamentos-cover {
+                aspect-ratio: 3 / 2;
+                order: -1;
+            }
+
+            .casamentos-content {
+                max-width: none;
+            }
+
+            .casamentos-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .casamentos-photo,
+            .casamentos-photo--large {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+    <header class="site-header" id="site-header">
+        <div class="header-container">
+            <a href="#inicio" class="brand" aria-label="Jhony & Maura Home">
+                JHONY <span>&</span> MAURA
+            </a>
+
+            <nav class="main-nav" aria-label="Navegação principal">
+
+                <a href="home.html#inicio">
+                    O Show
+                </a>
+
+                <a href="home.html#a-dupla">
+                    A Dupla
+                </a>
+
+                <a href="home.html#experiencia">
+                    Experiência
+                </a>
+
+                <a href="home.html#estrutura">
+                    Estrutura
+                </a>
+
+                <a href="home.html#repertorio">
+                    Repertório
+                </a>
+
+
+                <!-- EVENTOS -->
+
+                <details class="nav-dropdown">
+
+                    <summary>
+                        Eventos
+                        <span class="nav-dropdown__arrow">⌄</span>
+                    </summary>
+
+                    <div class="nav-dropdown__menu">
+
+                        <a href="casamento.html">
+                            Casamentos
+                        </a>
+
+                        <a href="15-anos.html">
+                            15 Anos
+                        </a>
+
+                        <a href="corporativo.html">
+                            Corporativo
+                        </a>
+
+                    </div>
+
+                </details>
+
+
+                <a href="home.html#autoridade">
+                    Autoridade
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contato" class="header-cta">
+                    Consultar Agenda
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false"
+                    aria-controls="mobile-nav">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Drawer -->
+        <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+            <nav class="mobile-nav__links">
+                <a href="casamento.html" class="mobile-link">Casamentos</a>
+                <a href="15-anos.html" class="mobile-link">15 Anos</a>
+                <a href="corporativo.html" class="mobile-link">Corporativo</a>
+                <a href="#autoridade" class="mobile-link">Autoridade</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- =========================================================
+             01 — SEÇÃO IMPACTO (HERO)
+        ========================================================== -->
+        <section class="hero" id="inicio">
+            <video class="hero-video" autoplay muted loop playsinline preload="auto">
+                <source src="../assets/J&M.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-eyebrow fade-up">
+                        MÚSICA • EXPERIÊNCIA • EMOÇÃO
+                    </span>
+
+                    <h1 class="hero-title fade-up">
+                        SINTA ESSA<br>
+                        <span class="highlight">ENERGIA</span>
+                        <br>
+
+                    </h1>
+
+                    <p class="hero-subtitle fade-up">
+                        Música, presença e energia para fazer a noite acontecer.
+                    </p>
+
+                    <div class="hero-tags fade-up">
+                        <span class="tag-item">Banda Completa</span>
+                        <span class="tag-separator">•</span>
+                        <span class="tag-item">100% Ao Vivo</span>
+                        <span class="tag-separator">•</span>
+                        <span class="tag-item">Presença & Carisma</span>
+                    </div>
+
+                    <div class="hero-actions fade-up">
+                        <a href="#contato" class="btn btn-primary">
+                            Verificar Disponibilidade de Data
+                            <span class="btn-arrow">→</span>
+                        </a>
+
+                        <a href="#a-dupla" class="btn btn-ghost">
+                            Conheça o show
+                            <span class="btn-arrow">↓</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-bottom">
+                <span>JHONY & MAURA</span>
+                <span class="hero-badge-live">● SHOW AO VIVO</span>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             02 — SEÇÃO QUEM SÃO (A DUPLA)
+        ========================================================== -->
+        <section class="duo-section" id="a-dupla">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">A DUPLA</span>
+                    <h2 class="section-title">
+                        Dois artistas. Uma identidade.<br>
+                        Um show pensado para conectar pessoas.
+                    </h2>
+                </div>
+
+                <div class="duo-grid">
+                    <div class="duo-media fade-up">
+                        <div class="duo-image-wrapper">
+                            <img src="../assets/J&M.png" alt="Jhony & Maura no palco" class="duo-image" loading="lazy">
+                            <div class="duo-image-caption">
+                                <span class="caption-tag">Ao Vivo</span>
+                                <span class="caption-text">Jhony & Maura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="duo-content fade-up">
+                        <p class="duo-lead">
+                            A harmonia vocal entre Jhony e Maura é o coração de um espetáculo vibrante e
+                            envolvente. Com cumplicidade de palco e carisma contagiante, a dupla transforma cada
+                            apresentação em um momento marcante onde a plateia não é apenas espectadora: ela canta,
+                            vibra e participa ativamente.
+                        </p>
+
+                        <div class="pillars-list">
+                            <div class="pillar-item">
+                                <div class="pillar-header">
+                                    <span class="pillar-num">01</span>
+                                    <h3>Afinação & Harmonia</h3>
+                                </div>
+                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
+                                    espetáculo.</p>
+                            </div>
+
+                            <div class="pillar-item">
+                                <div class="pillar-header">
+                                    <span class="pillar-num">02</span>
+                                    <h3>Versatilidade Musical</h3>
+                                </div>
+                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
+                                    gerações.</p>
+                            </div>
+
+                            <div class="pillar-item">
+                                <div class="pillar-header">
+                                    <span class="pillar-num">03</span>
+                                    <h3>Energia de Palco</h3>
+                                </div>
+                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao
+                                    fim.</p>
+                            </div>
+
+                            <div class="pillar-item">
+                                <div class="pillar-header">
+                                    <span class="pillar-num">04</span>
+                                    <h3>Conexão Humana</h3>
+                                </div>
+                                <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             03 — SEÇÃO EXPERIÊNCIA
+        ========================================================== -->
+        <section class="experience-section" id="experiencia">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">A EXPERIÊNCIA DO SHOW</span>
+                    <h2 class="section-title">
+                        A noite começa. A pista responde.<br>
+                        O show cresce.
+                    </h2>
+                    <p class="section-subtitle">
+                        Mais do que uma lista de músicas, o show possui uma narrativa dinâmica que acompanha a
+                        temperatura dos convidados.
+                    </p>
+                </div>
+
+                <!-- Timeline narrativa em 3 fases -->
+                <div class="experience-phases">
+                    <div class="phase-card fade-up">
+                        <div class="phase-badge">01</div>
+                        <span class="phase-step">FASE INICIAL</span>
+                        <h3>Acolhimento & Presença</h3>
+                        <p>O início da noite pede presença, elegância e conexão. Uma ambientação sonora envolvente que
+                            recepciona os convidados e prepara o clima.</p>
+                    </div>
+
+                    <div class="phase-card fade-up">
+                        <div class="phase-badge">02</div>
+                        <span class="phase-step">TRANSIÇÃO</span>
+                        <h3>A Virada da Noite</h3>
+                        <p>A energia sobe. O repertório acompanha a vibração do público e a pista começa a ganhar
+                            vida com hits que atraem todas as idades.</p>
+                    </div>
+
+                    <div class="phase-card fade-up">
+                        <div class="phase-badge">03</div>
+                        <span class="phase-step">CLÍMAX</span>
+                        <h3>O Ápice & Apoteose</h3>
+                        <p>Todo mundo canta. Todo mundo dança. O show chega ao seu momento máximo de euforia e
+                            celebração,
+                            terminando em clima de bis.</p>
+                    </div>
+                </div>
+
+                <!-- Mosaico visual com fotos reais da banda -->
+                <div class="experience-gallery fade-up">
+                    <div class="gallery-item gallery-item--large">
+                        <img src="../assets/shows/foto3.png" alt="Jhony & Maura show ao vivo com efeitos pirotécnicos"
+                            loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Energia e presença de palco em grandes noites</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="../assets/shows/foto2.png" alt="Apresentação ao vivo de Jhony & Maura" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Sintonia com a pista</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="../assets/shows/fot1.png" alt="Banda Jhony & Maura em ação" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Música ao vivo sem pausas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contextualização orgânica sem ser catálogo de serviços -->
+                <div class="experience-context fade-up">
+                    <p>
+                        Casamentos, 15 anos, formaturas, aniversários e diferentes celebrações ganham uma atmosfera
+                        própria quando a música encontra o público. Cada ocasião tem sua essência, e o espetáculo
+                        dialoga com a identidade da sua festa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             04 — SEÇÃO ESTRUTURA
+        ========================================================== -->
+        <section class="structure-section" id="estrutura">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">ESTRUTURA & PRODUÇÃO</span>
+                    <h2 class="section-title">
+                        Você cuida dos convidados.<br>
+                        <span>Nós cuidamos do show.</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Profissionalismo que garante tranquilidade total para quem contrata e para o cerimonial.
+                    </p>
+                </div>
+
+                <div class="structure-grid">
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">01</div>
+                        <h3>Banda & Artistas</h3>
+                        <p>Vocalistas com apoio de músicos experientes no palco para entregar uma sonoridade encorpada
+                            e cheia de dinâmica.</p>
+                    </div>
+
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">02</div>
+                        <h3>Sonorização</h3>
+                        <p>Equipamentos calibrados para garantir inteligibilidade vocal cristalina e pressão sonora no
+                            volume adequado para o espaço.</p>
+                    </div>
+
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">03</div>
+                        <h3>Iluminação Cênica</h3>
+                        <p>Clima visual sintonizado com o andamento musical, destacando os momentos solenes e
+                            potencializando os momentos de euforia.</p>
+                    </div>
+
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">04</div>
+                        <h3>Produção & Equipe</h3>
+                        <p>Profissionais de suporte e roadies dedicados à montagem, passagem de som e execução sem
+                            imprevistos.</p>
+                    </div>
+
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">05</div>
+                        <h3>Alinhamento Prévio</h3>
+                        <p>Sintonia direta com a organização do evento e cerimonialistas para respeitar horários e o
+                            fluxo planejado da noite.</p>
+                    </div>
+
+                    <div class="structure-card fade-up">
+                        <div class="structure-num">06</div>
+                        <h3>Pontualidade & Compromisso</h3>
+                        <p>Chegada e preparação com antecedência técnica, garantindo que tudo esteja pronto antes da
+                            abertura das portas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             05 — SEÇÃO REPERTÓRIO
+        ========================================================== -->
+        <section class="repertoire-section" id="repertorio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">VERSATILIDADE MUSICAL</span>
+                    <h2 class="section-title">
+                        Uma banda.<br>
+                        Muitas atmosferas.
+                    </h2>
+                    <p class="section-subtitle">
+                        A pista muda. O repertório acompanha. Da sofrência ao hit da pista, uma viagem sonora que
+                        levanta qualquer evento.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Faixas deslizantes (Marquee visual sofisticado com estilos reais) -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track marquee-track--left">
+                    <div class="marquee-content">
+                        <span class="genre-tag">SERTANEJO RAIZ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">MODA DE VIOLA</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FORRÓ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">XOTE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">VANERÃO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">AXÉ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">PAGODE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SAMBA</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">MPB</span>
+                        <span class="genre-dot">◆</span>
+                    </div>
+                    <!-- Duplicado para loop contínuo e sem interrupções -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <span class="genre-tag">SERTANEJO RAIZ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">MODA DE VIOLA</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FORRÓ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">XOTE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">VANERÃO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">AXÉ</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">PAGODE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SAMBA</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">MPB</span>
+                        <span class="genre-dot">◆</span>
+                    </div>
+                </div>
+
+                <div class="marquee-track marquee-track--right">
+                    <div class="marquee-content">
+                        <span class="genre-tag">POP</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK NACIONAL</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FLASHBACK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 2000</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">PISEIRO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FUNK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">DANCE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">TIKTOK HITS</span>
+                        <span class="genre-dot">◆</span>
+                    </div>
+                    <!-- Duplicado para loop contínuo e sem interrupções -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <span class="genre-tag">POP</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK NACIONAL</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FLASHBACK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 2000</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">PISEIRO</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">FUNK</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">DANCE</span>
+                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">TIKTOK HITS</span>
+                        <span class="genre-dot">◆</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="repertoire-footer fade-up">
+                    <p>Um repertório dinâmico conduzido pela leitura do público em tempo real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             07 — SEÇÃO AUTORIDADE (CARDS ORGANIZADOS)
+        ========================================================== -->
+        <section class="authority-section" id="autoridade">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">TRAJETÓRIA ARTÍSTICA</span>
+                    <h2 class="section-title">
+                        Mais de 20 anos como profissionais da música.
+                    </h2>
+                    <p class="section-subtitle">
+                        Uma história construída no palco e diante de públicos de grandes eventos e produções
+                        televisivas.
+                    </p>
+                </div>
+
+                <!-- Grid de Cards de Autoridade estruturado com assimetria e hierarquia -->
+                <div class="authority-grid">
+                    <!-- Card 01 - Destaque Principal -->
+                    <div class="authority-card authority-card--featured fade-up">
+                        <div class="authority-card__badge">MARCO DE CARREIRA</div>
+                        <div class="authority-card__big-num">20+</div>
+                        <h3>Mais de 20 anos de estrada</h3>
+                        <p>
+                            Uma trajetória sólida e contínua nos palcos, aliando maturidade vocal, repertório calibrado
+                            e domínio de plateia para fazer cada show ser memorável.
+                        </p>
+                    </div>
+
+                    <!-- Card 02 - SBT -->
+                    <div class="authority-card fade-up">
+                        <div class="authority-card__media-tag">TELEVISÃO</div>
+                        <div class="authority-card__brand">SBT</div>
+                        <p>Experiência e apresentações em rede nacional em uma das principais emissoras de
+                            entretenimento
+                            do país.</p>
+                    </div>
+
+                    <!-- Card 03 - Máquina da Fama -->
+                    <div class="authority-card fade-up">
+                        <div class="authority-card__media-tag">TELEVISÃO</div>
+                        <div class="authority-card__brand">MÁQUINA DA FAMA</div>
+                        <p>Presença artística em formato de grande audiência, atestando versatilidade e rigor de
+                            interpretação.</p>
+                    </div>
+
+                    <!-- Card 04 - Programa do Ratinho -->
+                    <div class="authority-card fade-up">
+                        <div class="authority-card__media-tag">TELEVISÃO</div>
+                        <div class="authority-card__brand">RATINHO</div>
+                        <p>Participação ao vivo em programa de expressão nacional com alto padrão de audiência e
+                            exigência
+                            técnica.</p>
+                    </div>
+
+                    <!-- Card 05 - Ídolos -->
+                    <div class="authority-card fade-up">
+                        <div class="authority-card__media-tag">TELEVISÃO</div>
+                        <div class="authority-card__brand">ÍDOLOS</div>
+                        <p>Reconhecimento vocal e validação artística em uma das maiores vitrines de talentos da música
+                            brasileira.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             08 — SEÇÃO CONVERSÃO (BOOKING, FORMULÁRIO, WHATSAPP & FAQ)
+        ========================================================== -->
+        <section class="booking-section" id="contato">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <!-- Cabeçalho de Conversão -->
+                    <div class="booking-intro fade-up">
+                        <span class="section-eyebrow">AGENDA ABERTA</span>
+                        <h2 class="booking-title">
+                            Sua data pode ser o<br>
+                            <span>próximo grande show.</span>
+                        </h2>
+                        <p class="booking-desc">
+                            Consulte a disponibilidade para seu evento e receba atendimento direto com a produção da
+                            banda Jhony & Maura.
+                        </p>
+
+                        <div class="direct-contact-box">
+                            <span class="direct-contact-title">Atendimento Direto:</span>
+                            <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20banda%20Jhony%20%26%20Maura%20para%20meu%20evento."
+                                class="btn-whatsapp-direct" target="_blank" rel="noopener noreferrer">
+                                <span class="whatsapp-icon">💬</span>
+                                Falar diretamente pelo WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Consulta de Data -->
+                    <div class="booking-card fade-up">
+                        <h3 class="booking-card__title">Verificar Disponibilidade</h3>
+                        <p class="booking-card__subtitle">Preencha os dados e receba resposta rápida:</p>
+
+                        <form class="booking-form" id="booking-form">
+                            <div class="form-group">
+                                <label for="client-name">Seu Nome / Contratante *</label>
+                                <input type="text" id="client-name" name="name" required
+                                    placeholder="Como podemos te chamar?">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="client-whatsapp">WhatsApp com DDD *</label>
+                                    <input type="tel" id="client-whatsapp" name="whatsapp" required
+                                        placeholder="(11) 99999-9999">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="event-date">Data Prevista *</label>
+                                    <input type="date" id="event-date" name="date" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="event-city">Cidade / Estado *</label>
+                                    <input type="text" id="event-city" name="city" required
+                                        placeholder="Ex: São Paulo - SP">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="event-type">Tipo de Evento</label>
+                                    <select id="event-type" name="type">
+                                        <option value="Casamento">Casamento</option>
+                                        <option value="15 Anos">15 Anos</option>
+                                        <option value="Formatura">Formatura</option>
+                                        <option value="Aniversário / Festa Privada">Aniversário / Festa Privada</option>
+                                        <option value="Evento Corporativo">Evento Corporativo</option>
+                                        <option value="Rodeio / Festa Pública">Rodeio / Festa Pública</option>
+                                        <option value="Outro Formato">Outro Formato</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="event-notes">Informações Adicionais (opcional)</label>
+                                <textarea id="event-notes" name="notes" rows="3"
+                                    placeholder="Horário previsto, local ou detalhes que gostaria de antecipar..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                Consultar Disponibilidade
+                                <span class="btn-arrow">→</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FAQ Minimalista em Accordion -->
+                <div class="faq-section fade-up">
+                    <div class="faq-header">
+                        <span class="section-eyebrow">DÚVIDAS FREQUENTES</span>
+                        <h3 class="faq-title">Informações para Contratação</h3>
+                    </div>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                Com quanto tempo de antecedência devo reservar a data?
+                                <span class="faq-icon">+</span>
+                            </summary>
+                            <div class="faq-answer">
+                                <p>Como a banda atende celebrações exclusivas com montagem e alinhamento prévio, datas
+                                    de sábados e períodos de alta demanda costumam ser reservadas com meses de
+                                    antecedência. Recomendamos consultar a disponibilidade assim que definir a data do
+                                    seu evento.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                A banda atende eventos fora da cidade ou em outros estados?
+                                <span class="faq-icon">+</span>
+                            </summary>
+                            <div class="faq-answer">
+                                <p>Sim. A estrutura de Jhony & Maura viaja para diferentes regiões e cidades, com
+                                    logística coordenada previamente junto à produção do contratante ou cerimonial.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                Como funciona o alinhamento com cerimonial e produção local?
+                                <span class="faq-icon">+</span>
+                            </summary>
+                            <div class="faq-answer">
+                                <p>Nossa equipe entra em contato com antecedência para alinhar cronograma, rider
+                                    técnico, horários de montagem, passagem de som e dinâmicas especiais da programação.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                A banda pode fornecer sonorização e iluminação?
+                                <span class="faq-icon">+</span>
+                            </summary>
+                            <div class="faq-answer">
+                                <p>Dispomos de soluções completas de som e iluminação profissional adequadas ao porte do
+                                    local, ou podemos nos conectar à infraestrutura contratada para o evento sem
+                                    dificuldades técnicas.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand-col">
+                <a href="#inicio" class="footer-brand">
+                    JHONY <span>&</span> MAURA
+                </a>
+                <p class="footer-tagline">
+                    Música • Experiência • Emoção
+                </p>
+                <p class="footer-copy">
+                    © 2026 Jhony & Maura. Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div class="footer-nav-col">
+                <span class="footer-col-title">Navegação</span>
+                <nav class="footer-links">
+                    <a href="#inicio">O Show</a>
+                    <a href="#dupla">A Dupla</a>
+                    <a href="#experiencia">Experiência</a>
+                    <a href="#estrutura">Estrutura</a>
+                    <a href="#repertorio">Repertório</a>
+                    <a href="casamento.html">Casamentos</a>
+                    <a href="15-anos.html">15 Anos</a>
+                    <a href="#autoridade">Autoridade</a>
+                </nav>
+            </div>
+
+            <div class="footer-contact-col">
+                <span class="footer-col-title">Contato & Redes</span>
+                <div class="footer-social">
+                    <a href="https://instagram.com/jhonyemaura" target="_blank" rel="noopener noreferrer">Instagram
+                        (@jhonyemaura)</a>
+                    <a href="#contato">Consultar Agenda</a>
+                    <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20banda%20Jhony%20%26%20Maura."
+                        target="_blank" rel="noopener noreferrer">WhatsApp Oficial</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Vanilla -->
+    <script src="../script.js"></script>
+</body>
+
+</html>
