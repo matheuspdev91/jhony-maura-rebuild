@@ -1458,7 +1458,6 @@
         filter 1.2s ease;
 }
 
-
 /* Overlay cinematográfico */
 
 .corporativo-hero__overlay {
@@ -2582,6 +2581,27 @@
         filter 0.8s ease;
 }
 
+.casamento-page .experience-page__media {
+    display: block;
+    width: calc(100% - 4vw);
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.casamento-page .experience-page__media-item {
+    height: auto;
+    background: transparent;
+    border: none;
+}
+
+.casamento-page .experience-page__media-item img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+}
+
+
 .experience-page__media-item:hover img {
     transform: scale(1.035);
 
@@ -3231,4 +3251,27 @@
 }
 
 
-   
+/* ==========================================================
+   CORPORATIVO — CAPA
+   Imagem inteira + largura controlada
+   ========================================================== */
+
+.corporativo-page .experience-page__cover {
+    width: calc(100% - 8vw);
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.corporativo-page .experience-page__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+
+    transform: none !important;
+}
