@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Foundation -->
@@ -24,270 +24,243 @@
     <link rel="stylesheet" href="../style.css">
 
     <style>
-        /* ==========================================================
-           EXPERIÊNCIA — CASAMENTOS
-           ========================================================== */
-        .casamentos-section {
-            position: relative;
-            overflow: hidden;
-            padding: clamp(5rem, 9vw, 9rem) 0;
-            background: #f4f0eb;
-            color: #161616;
-            border-top: 1px solid rgba(0, 0, 0, .08);
+        /* =====================================================
+           GLOBAL WIDTH FIX
+           A Foundation/legacy max-width on the main scroll wrapper
+           was compressing the landing page into a narrow column.
+           ===================================================== */
+        html,
+        body,
+        .smooth-scroll-container {
+            width: 100% !important;
+            max-width: none !important;
+            min-width: 0;
         }
 
-        .casamentos-inner {
-            width: min(var(--container), calc(100% - 8vw));
-            margin-inline: auto;
-            display: grid;
-            grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr);
-            gap: clamp(2.5rem, 6vw, 7rem);
-            align-items: center;
-        }
-
-        .casamentos-content {
-            max-width: 560px;
-        }
-
-        .casamentos-content .section-eyebrow {
-            color: #8f6b4f;
-        }
-
-        .casamentos-content .section-title {
-            color: #151515;
-        }
-
-        .casamentos-content .section-title span {
-            color: #9b6d49;
-        }
-
-        .casamentos-content>p {
-            margin: 1.5rem 0 2rem;
-            max-width: 510px;
-            color: rgba(20, 20, 20, .66);
-            line-height: 1.8;
-        }
-
-        .casamentos-cover {
-            position: relative;
-            overflow: hidden;
-            background: #ddd5cc;
-            aspect-ratio: 3 / 2;
-        }
-
-        .casamentos-cover img {
+        .smooth-scroll-container > .scene {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
         }
 
-        .casamentos-gallery {
-            width: min(var(--container), calc(100% - 8vw));
-            margin: clamp(2.5rem, 5vw, 5rem) auto 0;
-            display: grid;
-            grid-template-columns: 1.35fr .85fr;
-            gap: 1rem;
-        }
-
-        .casamentos-photo {
-            margin: 0;
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-            background: #ddd5cc;
-        }
-
-        .casamentos-photo--large {
-            aspect-ratio: 16 / 9;
-        }
-
-        .casamentos-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform .6s ease;
-        }
-
-        .casamentos-photo:hover img {
-            transform: scale(1.025);
-        }
-
-        @media (max-width: 820px) {
-            .casamentos-inner {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
+        /* =====================================================
+           A DUPLA — COMPOSIÇÃO FINAL
+           Regra local da página para impedir qualquer regra
+           global de Foundation/legacy de comprimir a seção.
+           ===================================================== */
+        @media (min-width: 1025px) {
+            .scene--formats > .container {
+                display: block !important;
+                width: min(1800px, calc(100vw - 96px)) !important;
+                max-width: none !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
-            .casamentos-cover {
-                aspect-ratio: 3 / 2;
-                order: -1;
+            .scene--formats .duo-presentation-grid {
+                width: 100% !important;
+                max-width: none !important;
+                display: grid !important;
+                grid-template-columns: minmax(0, 2fr) minmax(360px, 1fr) !important;
+                gap: 32px !important;
+                align-items: start !important;
             }
 
-            .casamentos-content {
-                max-width: none;
+            .scene--formats .duo-presentation-left {
+                width: 100% !important;
+                min-width: 0 !important;
             }
 
-            .casamentos-gallery {
-                grid-template-columns: 1fr;
+            .scene--formats .duo-presentation-title {
+                width: 100% !important;
+                max-width: none !important;
+                margin-bottom: 32px !important;
+                white-space: normal !important;
             }
 
-            .casamentos-photo,
-            .casamentos-photo--large {
-                aspect-ratio: 4 / 3;
+            .scene--formats .pillars-grid-2x2 {
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 20px !important;
+            }
+
+            .scene--formats .pillars-grid-2x2 .premium-card {
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 220px !important;
+                height: auto !important;
+                display: grid !important;
+                grid-template-columns: auto minmax(0, 1fr) !important;
+                grid-template-rows: auto 1fr !important;
+                column-gap: 22px !important;
+                row-gap: 10px !important;
+                align-content: start !important;
+                padding: 28px !important;
+            }
+
+            .scene--formats .pillars-grid-2x2 .premium-card__num {
+                grid-column: 1 !important;
+                grid-row: 1 / span 2 !important;
+                font-size: clamp(3.2rem, 4.5vw, 5rem) !important;
+                white-space: nowrap !important;
+            }
+
+            .scene--formats .pillars-grid-2x2 .premium-card h3 {
+                grid-column: 2 !important;
+                grid-row: 1 !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                overflow-wrap: normal !important;
+                word-break: normal !important;
+            }
+
+            .scene--formats .pillars-grid-2x2 .premium-card p {
+                grid-column: 2 !important;
+                grid-row: 2 !important;
+                margin: 0 !important;
+                max-width: none !important;
+                min-width: 0 !important;
+                overflow-wrap: normal !important;
+                word-break: normal !important;
+            }
+
+            .scene--formats .formats-stack {
+                width: 100% !important;
+                min-width: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            .scene--formats .formats-stack .premium-card--format {
+                width: 100% !important;
+                min-width: 0 !important;
+                height: auto !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .scene--formats > .container {
+                width: calc(100% - 40px) !important;
+                max-width: none !important;
             }
         }
     </style>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
 </head>
 
 <body>
 
     <!-- =========================================================
-         HEADER
+         HEADER (FOUNDATION TOPBAR)
     ========================================================== -->
-    <header class="site-header" id="site-header">
-        <div class="header-container">
-            <a href="#inicio" class="brand" aria-label="Jhony & Maura Home">
-                JHONY <span>&</span> MAURA
+    <header class="topbar" id="site-header">
+        <div class="topbar-start">
+            <a href="#inicio" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;" aria-label="Jhony & Maura Home">
+                JHONY <span style="color: var(--color-primary);">&</span> MAURA
             </a>
-
-            <nav class="main-nav" aria-label="Navegação principal">
-
-                <a href="home.html#inicio">
-                    O Show
-                </a>
-
-                <a href="home.html#a-dupla">
-                    A Dupla
-                </a>
-
-                <a href="home.html#experiencia">
-                    Experiência
-                </a>
-
-                <a href="home.html#estrutura">
-                    Estrutura
-                </a>
-
-                <a href="home.html#repertorio">
-                    Repertório
-                </a>
-
-
-                <!-- EVENTOS -->
-
-                <details class="nav-dropdown">
-
-                    <summary>
-                        Eventos
-                        <span class="nav-dropdown__arrow">⌄</span>
-                    </summary>
-
-                    <div class="nav-dropdown__menu">
-
-                        <a href="casamento.html">
-                            Casamentos
-                        </a>
-
-                        <a href="15-anos.html">
-                            15 Anos
-                        </a>
-
-                        <a href="corporativo.html">
-                            Corporativo
-                        </a>
-
-                    </div>
-
-                </details>
-
-
-                <a href="home.html#autoridade">
-                    Autoridade
-                </a>
-
-            </nav>
-
-            <div class="header-actions">
-                <a href="#contato" class="header-cta">
-                    Consultar Agenda
-                </a>
-
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false"
-                    aria-controls="mobile-nav">
-                    <span class="hamburger-bar"></span>
-                    <span class="hamburger-bar"></span>
-                </button>
-            </div>
         </div>
 
-        <!-- Menu Mobile Drawer -->
-        <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-            <nav class="mobile-nav__links">
-                <a href="casamento.html" class="mobile-link">Casamentos</a>
-                <a href="15-anos.html" class="mobile-link">15 Anos</a>
-                <a href="corporativo.html" class="mobile-link">Corporativo</a>
-                <a href="#autoridade" class="mobile-link">Autoridade</a>
-            </nav>
+        <nav class="topbar-center hide-for-small" aria-label="Navegação principal">
+            <a href="home.html#inicio">O Show</a>
+            <a href="home.html#a-dupla">A Dupla</a>
+            <a href="home.html#experiencia">Experiência</a>
+            <a href="home.html#estrutura">Estrutura</a>
+            <a href="home.html#repertorio">Repertório</a>
+            
+            <a href="casamento.html">Casamentos</a>
+            <a href="15-anos.html">15 Anos</a>
+            <a href="corporativo.html">Corporativo</a>
+
+            <a href="home.html#autoridade">Autoridade</a>
+        </nav>
+
+        <div class="topbar-end">
+            <a href="#contato" class="btn btn-primary btn-sm hide-for-small">
+                Consultar Agenda
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="btn btn-ghost btn-icon show-for-small" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav">
+                ☰
+            </button>
         </div>
     </header>
 
+    <!-- Menu Mobile Drawer (FOUNDATION SIDEBAR) -->
+    <div class="sidebar" id="mobile-nav" aria-hidden="true">
+        <div class="sidebar-header">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">JHONY & MAURA</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="casamento.html" class="sidebar-link">Casamentos</a>
+            <a href="15-anos.html" class="sidebar-link">15 Anos</a>
+            <a href="corporativo.html" class="sidebar-link">Corporativo</a>
+            <a href="#autoridade" class="sidebar-link">Autoridade</a>
+            <a href="#contato" class="sidebar-link active">Consultar Agenda</a>
+        </nav>
+    </div>
 
-    <main>
+
+    <main class="smooth-scroll-container">
 
         <!-- =========================================================
              01 — SEÇÃO IMPACTO (HERO)
         ========================================================== -->
-        <section class="hero" id="inicio">
-            <video class="hero-video" autoplay muted loop playsinline preload="auto">
-                <source src="../assets/J&M.mp4" type="video/mp4">
-            </video>
+        <section class="scene scene--hero" id="inicio">
+            <div class="hero-stage">
+                <div class="hero-media-wrapper js-parallax" data-speed="0.3">
+                    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+                        <source src="../assets/J&M.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-overlay js-hero-overlay"></div>
+                </div>
 
-            <div class="hero-overlay"></div>
+                <div class="hero-container">
+                    <div class="hero-content js-parallax" data-speed="-0.2">
+                        <span class="hero-eyebrow reveal-up">
+                            MÚSICA • EXPERIÊNCIA • EMOÇÃO
+                        </span>
 
-            <div class="hero-container">
-                <div class="hero-content">
-                    <span class="hero-eyebrow fade-up">
-                        MÚSICA • EXPERIÊNCIA • EMOÇÃO
-                    </span>
+                        <h1 class="hero-title reveal-up" style="transition-delay: 0.1s">
+                            SINTA ESSA<br>
+                            <span class="highlight">ENERGIA</span>
+                        </h1>
 
-                    <h1 class="hero-title fade-up">
-                        SINTA ESSA<br>
-                        <span class="highlight">ENERGIA</span>
-                        <br>
+                        <p class="hero-subtitle reveal-up" style="transition-delay: 0.2s">
+                            Música, presença e energia para fazer a noite acontecer.
+                        </p>
 
-                    </h1>
+                        <div class="hero-tags reveal-up" style="transition-delay: 0.3s">
+                            <span class="tag-item">Banda Completa</span>
+                            <span class="tag-separator">•</span>
+                            <span class="tag-item">100% Ao Vivo</span>
+                            <span class="tag-separator">•</span>
+                            <span class="tag-item">Presença & Carisma</span>
+                        </div>
 
-                    <p class="hero-subtitle fade-up">
-                        Música, presença e energia para fazer a noite acontecer.
-                    </p>
-
-                    <div class="hero-tags fade-up">
-                        <span class="tag-item">Banda Completa</span>
-                        <span class="tag-separator">•</span>
-                        <span class="tag-item">100% Ao Vivo</span>
-                        <span class="tag-separator">•</span>
-                        <span class="tag-item">Presença & Carisma</span>
-                    </div>
-
-                    <div class="hero-actions fade-up">
-                        <a href="#contato" class="btn btn-primary">
-                            Verificar Disponibilidade de Data
-                            <span class="btn-arrow">→</span>
-                        </a>
-
-                        <a href="#a-dupla" class="btn btn-ghost">
-                            Conheça o show
-                            <span class="btn-arrow">↓</span>
-                        </a>
+                        <div class="hero-actions reveal-up" style="transition-delay: 0.4s">
+                            <a href="#contato" class="btn btn-primary">
+                                Verificar Disponibilidade de Data
+                                <span class="btn-arrow">→</span>
+                            </a>
+                            <a href="#a-dupla" class="btn btn-ghost">
+                                Conheça o show
+                                <span class="btn-arrow">↓</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="hero-bottom">
-                <span>JHONY & MAURA</span>
-                <span class="hero-badge-live">● SHOW AO VIVO</span>
+                <div class="hero-bottom js-parallax" data-speed="-0.1">
+                    <span>JHONY & MAURA</span>
+                    <span class="hero-badge-live">● SHOW AO VIVO</span>
+                </div>
             </div>
         </section>
 
@@ -295,7 +268,7 @@
         <!-- =========================================================
              02 — SEÇÃO QUEM SÃO (A DUPLA)
         ========================================================== -->
-        <section class="duo-section" id="a-dupla">
+        <section class="scene duo-section" id="a-dupla">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow">A DUPLA</span>
@@ -306,7 +279,7 @@
                 </div>
 
                 <div class="duo-grid">
-                    <div class="duo-media fade-up">
+                    <div class="duo-media reveal-up">
                         <div class="duo-image-wrapper">
                             <img src="../assets/J&M.png" alt="Jhony & Maura no palco" class="duo-image" loading="lazy">
                             <div class="duo-image-caption">
@@ -316,7 +289,7 @@
                         </div>
                     </div>
 
-                    <div class="duo-content fade-up">
+                    <div class="duo-content reveal-up">
                         <p class="duo-lead">
                             A harmonia vocal entre Jhony e Maura é o coração de um espetáculo vibrante e
                             envolvente. Com cumplicidade de palco e carisma contagiante, a dupla transforma cada
@@ -330,8 +303,7 @@
                                     <span class="pillar-num">01</span>
                                     <h3>Afinação & Harmonia</h3>
                                 </div>
-                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
-                                    espetáculo.</p>
+                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do espetáculo.</p>
                             </div>
 
                             <div class="pillar-item">
@@ -339,8 +311,7 @@
                                     <span class="pillar-num">02</span>
                                     <h3>Versatilidade Musical</h3>
                                 </div>
-                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
-                                    gerações.</p>
+                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e gerações.</p>
                             </div>
 
                             <div class="pillar-item">
@@ -348,8 +319,7 @@
                                     <span class="pillar-num">03</span>
                                     <h3>Energia de Palco</h3>
                                 </div>
-                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao
-                                    fim.</p>
+                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.</p>
                             </div>
 
                             <div class="pillar-item">
@@ -357,8 +327,7 @@
                                     <span class="pillar-num">04</span>
                                     <h3>Conexão Humana</h3>
                                 </div>
-                                <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.
-                                </p>
+                                <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.</p>
                             </div>
                         </div>
                     </div>
@@ -368,10 +337,94 @@
 
 
         <!-- =========================================================
-             03 — SEÇÃO EXPERIÊNCIA
+             03 — FORMATOS DE CONTRATAÇÃO
         ========================================================== -->
-        <section class="experience-section" id="experiencia">
+        <!-- =========================================================
+             03 — FORMATOS DE CONTRATAÇÃO
+        ========================================================== -->
+        <section class="scene scene--formats" id="formatos">
             <div class="container">
+                <div class="duo-presentation-grid">
+                    
+                    <!-- LEFT COLUMN -->
+                    <div class="duo-presentation-left">
+                        <h2 class="duo-presentation-title reveal-up">
+                            UMA SOLUÇÃO PARA<br>
+                            CADA TIPO DE EVENTO.
+                        </h2>
+
+                        <div class="pillars-grid-2x2">
+                            <div class="premium-card reveal-up" style="transition-delay: 0.1s">
+                                <span class="premium-card__num">01</span>
+                                <h3>Afinação & Harmonia</h3>
+                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do espetáculo.</p>
+                            </div>
+
+                            <div class="premium-card reveal-up" style="transition-delay: 0.2s">
+                                <span class="premium-card__num">02</span>
+                                <h3>Versatilidade Musical</h3>
+                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e gerações.</p>
+                            </div>
+
+                            <div class="premium-card reveal-up" style="transition-delay: 0.3s">
+                                <span class="premium-card__num">03</span>
+                                <h3>Energia de Palco</h3>
+                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.</p>
+                            </div>
+
+                            <div class="premium-card reveal-up" style="transition-delay: 0.4s">
+                                <span class="premium-card__num">04</span>
+                                <h3>Conexão Humana</h3>
+                                <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="formats-stack">
+                        <div class="premium-card premium-card--format reveal-up" style="transition-delay: 0.5s">
+                            <span class="format-badge">COMPACTA</span>
+                            <h3>BANDA COMPACTA</h3>
+                            <p class="format-subtitle">Ideal para eventos de pequeno e médio porte</p>
+                            
+                            <ul class="format-specs">
+                                <li><span class="spec-num">2</span> vocalistas</li>
+                                <li><span class="spec-num">2</span> músicos</li>
+                                <li><span class="spec-num">1</span> produtor</li>
+                                <li><span class="spec-num">1</span> roadie</li>
+                            </ul>
+                            
+                            <a href="#contato" class="btn btn-pill-red">CONSULTAR AGENDA →</a>
+                        </div>
+
+                        <div class="premium-card premium-card--format reveal-up" style="transition-delay: 0.6s">
+                            <span class="format-badge">COMPLETA</span>
+                            <h3>BANDA COMPLETA</h3>
+                            <p class="format-subtitle">Ideal para grandes eventos e celebrações</p>
+                            
+                            <ul class="format-specs">
+                                <li><span class="spec-num">2</span> vocalistas</li>
+                                <li><span class="spec-num">3</span> músicos: bateria, guitarra e baixo (um extra: sanfona ou percussão)</li>
+                                <li><span class="spec-num">2</span> dançarinos (se necessário)</li>
+                                <li><span class="spec-num">1</span> produtor</li>
+                                <li><span class="spec-num">1</span> roadie</li>
+                            </ul>
+                            
+                            <a href="#contato" class="btn btn-pill-red">CONSULTAR AGENDA →</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             04 — SEÇÃO EXPERIÊNCIA
+        ========================================================== -->
+        <section class="scene scene--experience" id="experiencia">
+            <div class="container">
+                
                 <div class="section-header">
                     <span class="section-eyebrow">A EXPERIÊNCIA DO SHOW</span>
                     <h2 class="section-title">
@@ -379,129 +432,118 @@
                         O show cresce.
                     </h2>
                     <p class="section-subtitle">
-                        Mais do que uma lista de músicas, o show possui uma narrativa dinâmica que acompanha a
-                        temperatura dos convidados.
+                        Mais do que uma lista de músicas, o show possui uma narrativa dinâmica que acompanha a temperatura dos convidados.
                     </p>
                 </div>
 
-                <!-- Timeline narrativa em 3 fases -->
-                <div class="experience-phases">
-                    <div class="phase-card fade-up">
-                        <div class="phase-badge">01</div>
-                        <span class="phase-step">FASE INICIAL</span>
-                        <h3>Acolhimento & Presença</h3>
-                        <p>O início da noite pede presença, elegância e conexão. Uma ambientação sonora envolvente que
-                            recepciona os convidados e prepara o clima.</p>
-                    </div>
+                <div class="experience-stage-inner">
 
-                    <div class="phase-card fade-up">
-                        <div class="phase-badge">02</div>
-                        <span class="phase-step">TRANSIÇÃO</span>
-                        <h3>A Virada da Noite</h3>
-                        <p>A energia sobe. O repertório acompanha a vibração do público e a pista começa a ganhar
-                            vida com hits que atraem todas as idades.</p>
-                    </div>
+                    <div class="experience-phases">
+                        <div class="phase-card">
+                            <div class="phase-badge">01</div>
+                            <span class="phase-step">FASE INICIAL</span>
+                            <h3>Acolhimento & Presença</h3>
+                            <p>O início da noite pede presença, elegância e conexão. Uma ambientação sonora
+                                envolvente que recepciona os convidados e prepara o clima.</p>
+                        </div>
 
-                    <div class="phase-card fade-up">
-                        <div class="phase-badge">03</div>
-                        <span class="phase-step">CLÍMAX</span>
-                        <h3>O Ápice & Apoteose</h3>
-                        <p>Todo mundo canta. Todo mundo dança. O show chega ao seu momento máximo de euforia e
-                            celebração,
-                            terminando em clima de bis.</p>
-                    </div>
-                </div>
+                        <div class="phase-card">
+                            <div class="phase-badge">02</div>
+                            <span class="phase-step">TRANSIÇÃO</span>
+                            <h3>A Virada da Noite</h3>
+                            <p>A energia sobe. O repertório acompanha a vibração do público e a pista começa a
+                                ganhar vida com hits que atraem todas as idades.</p>
+                        </div>
 
-                <!-- Mosaico visual com fotos reais da banda -->
-                <div class="experience-gallery fade-up">
-                    <div class="gallery-item gallery-item--large">
-                        <img src="../assets/shows/foto3.png" alt="Jhony & Maura show ao vivo com efeitos pirotécnicos"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span>Energia e presença de palco em grandes noites</span>
+                        <div class="phase-card">
+                            <div class="phase-badge">03</div>
+                            <span class="phase-step">CLÍMAX</span>
+                            <h3>O Ápice & Apoteose</h3>
+                            <p>Todo mundo canta. Todo mundo dança. O show chega ao seu momento máximo de euforia
+                                e celebração, terminando em clima de bis.</p>
                         </div>
                     </div>
 
-                    <div class="gallery-item">
-                        <img src="../assets/shows/foto2.png" alt="Apresentação ao vivo de Jhony & Maura" loading="lazy">
-                        <div class="gallery-overlay">
-                            <span>Sintonia com a pista</span>
+                    <div class="experience-carousel-col">
+                        <div class="simple-carousel js-simple-carousel">
+                            <div class="carousel-track js-carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="../assets/shows/foto2.png" alt="Sintonia com a pista" loading="lazy">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="../assets/shows/fot1.png" alt="Música ao vivo sem pausas" loading="lazy">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="../assets/shows/foto3.png" alt="Show ao vivo com efeitos pirotécnicos" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="carousel-indicators js-carousel-indicators">
+                                <button class="indicator active" aria-label="Slide 1"></button>
+                                <button class="indicator" aria-label="Slide 2"></button>
+                                <button class="indicator" aria-label="Slide 3"></button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-item">
-                        <img src="../assets/shows/fot1.png" alt="Banda Jhony & Maura em ação" loading="lazy">
-                        <div class="gallery-overlay">
-                            <span>Música ao vivo sem pausas</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Contextualização orgânica sem ser catálogo de serviços -->
-                <div class="experience-context fade-up">
-                    <p>
-                        Casamentos, 15 anos, formaturas, aniversários e diferentes celebrações ganham uma atmosfera
-                        própria quando a música encontra o público. Cada ocasião tem sua essência, e o espetáculo
-                        dialoga com a identidade da sua festa.
-                    </p>
-                </div>
             </div>
         </section>
 
 
         <!-- =========================================================
-             04 — SEÇÃO ESTRUTURA
+             05 — SEÇÃO ESTRUTURA
         ========================================================== -->
-        <section class="structure-section" id="estrutura">
+        <section class="scene scene--structure" id="estrutura">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-up">
                     <span class="section-eyebrow">ESTRUTURA & PRODUÇÃO</span>
                     <h2 class="section-title">
                         Você cuida dos convidados.<br>
-                        <span>Nós cuidamos do show.</span>
+                        <span class="highlight">Nós cuidamos do show.</span>
                     </h2>
                     <p class="section-subtitle">
                         Profissionalismo que garante tranquilidade total para quem contrata e para o cerimonial.
                     </p>
                 </div>
 
-                <div class="structure-grid">
-                    <div class="structure-card fade-up">
+                <div class="grid-2">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.1s">
                         <div class="structure-num">01</div>
                         <h3>Banda & Artistas</h3>
-                        <p>Vocalistas com apoio de músicos experientes no palco para entregar uma sonoridade encorpada
-                            e cheia de dinâmica.</p>
+                        <p>Vocalistas com apoio de músicos experientes no palco para entregar uma sonoridade encorpada e
+                            cheia de dinâmica.</p>
                     </div>
 
-                    <div class="structure-card fade-up">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.2s">
                         <div class="structure-num">02</div>
                         <h3>Sonorização</h3>
                         <p>Equipamentos calibrados para garantir inteligibilidade vocal cristalina e pressão sonora no
                             volume adequado para o espaço.</p>
                     </div>
 
-                    <div class="structure-card fade-up">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.3s">
                         <div class="structure-num">03</div>
                         <h3>Iluminação Cênica</h3>
                         <p>Clima visual sintonizado com o andamento musical, destacando os momentos solenes e
                             potencializando os momentos de euforia.</p>
                     </div>
 
-                    <div class="structure-card fade-up">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.4s">
                         <div class="structure-num">04</div>
                         <h3>Produção & Equipe</h3>
                         <p>Profissionais de suporte e roadies dedicados à montagem, passagem de som e execução sem
                             imprevistos.</p>
                     </div>
 
-                    <div class="structure-card fade-up">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.5s">
                         <div class="structure-num">05</div>
                         <h3>Alinhamento Prévio</h3>
                         <p>Sintonia direta com a organização do evento e cerimonialistas para respeitar horários e o
                             fluxo planejado da noite.</p>
                     </div>
 
-                    <div class="structure-card fade-up">
+                    <div class="structure-card reveal-up" style="transition-delay: 0.6s">
                         <div class="structure-num">06</div>
                         <h3>Pontualidade & Compromisso</h3>
                         <p>Chegada e preparação com antecedência técnica, garantindo que tudo esteja pronto antes da
@@ -513,11 +555,11 @@
 
 
         <!-- =========================================================
-             05 — SEÇÃO REPERTÓRIO
+             06 — SEÇÃO REPERTÓRIO
         ========================================================== -->
-        <section class="repertoire-section" id="repertorio">
+        <section class="scene scene--repertoire" id="repertorio">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-up">
                     <span class="section-eyebrow">VERSATILIDADE MUSICAL</span>
                     <h2 class="section-title">
                         Uma banda.<br>
@@ -530,118 +572,78 @@
                 </div>
             </div>
 
-            <!-- Faixas deslizantes (Marquee visual sofisticado com estilos reais) -->
-            <div class="marquee-wrapper">
+            <!-- Dynamic Marquees -->
+            <div class="marquee-wrapper js-marquee-wrapper">
                 <div class="marquee-track marquee-track--left">
                     <div class="marquee-content">
-                        <span class="genre-tag">SERTANEJO RAIZ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">MODA DE VIOLA</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FORRÓ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">XOTE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">VANERÃO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">AXÉ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">PAGODE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">SAMBA</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">MPB</span>
-                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO RAIZ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">MODA DE VIOLA</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FORRÓ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">XOTE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">VANERÃO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">AXÉ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">PAGODE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">SAMBA</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">MPB</span><span class="genre-dot">◆</span>
                     </div>
-                    <!-- Duplicado para loop contínuo e sem interrupções -->
+                    <!-- Duplicate for infinite loop -->
                     <div class="marquee-content" aria-hidden="true">
-                        <span class="genre-tag">SERTANEJO RAIZ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">MODA DE VIOLA</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FORRÓ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">XOTE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">VANERÃO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">AXÉ</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">PAGODE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">SAMBA</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">MPB</span>
-                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO RAIZ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">SERTANEJO UNIVERSITÁRIO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">MODA DE VIOLA</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FORRÓ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">XOTE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">VANERÃO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">AXÉ</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">PAGODE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">SAMBA</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">MPB</span><span class="genre-dot">◆</span>
                     </div>
                 </div>
 
                 <div class="marquee-track marquee-track--right">
                     <div class="marquee-content">
-                        <span class="genre-tag">POP</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ROCK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ROCK NACIONAL</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FLASHBACK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ANOS 2000</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">PISEIRO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FUNK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">DANCE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">TIKTOK HITS</span>
-                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">POP</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK NACIONAL</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FLASHBACK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 2000</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">PISEIRO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FUNK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">DANCE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">TIKTOK HITS</span><span class="genre-dot">◆</span>
                     </div>
-                    <!-- Duplicado para loop contínuo e sem interrupções -->
+                    <!-- Duplicate for infinite loop -->
                     <div class="marquee-content" aria-hidden="true">
-                        <span class="genre-tag">POP</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ROCK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ROCK NACIONAL</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FLASHBACK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">ANOS 2000</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">PISEIRO</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">FUNK</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">DANCE</span>
-                        <span class="genre-dot">◆</span>
-                        <span class="genre-tag">TIKTOK HITS</span>
-                        <span class="genre-dot">◆</span>
+                        <span class="genre-tag">POP</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ROCK NACIONAL</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FLASHBACK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 60 / 70 / 80 / 90</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">ANOS 2000</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">PISEIRO</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">FUNK</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">DANCE</span><span class="genre-dot">◆</span>
+                        <span class="genre-tag">TIKTOK HITS</span><span class="genre-dot">◆</span>
                     </div>
                 </div>
             </div>
 
             <div class="container">
-                <div class="repertoire-footer fade-up">
+                <div class="repertoire-footer reveal-up">
                     <p>Um repertório dinâmico conduzido pela leitura do público em tempo real.</p>
                 </div>
             </div>
         </section>
 
         <!-- =========================================================
-             07 — SEÇÃO AUTORIDADE (CARDS ORGANIZADOS)
+             07 — SEÇÃO AUTORIDADE (EDITORIAL GRID)
         ========================================================== -->
-        <section class="authority-section" id="autoridade">
+        <section class="scene scene--authority" id="autoridade">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-up">
                     <span class="section-eyebrow">TRAJETÓRIA ARTÍSTICA</span>
                     <h2 class="section-title">
                         Mais de 20 anos como profissionais da música.
@@ -652,10 +654,9 @@
                     </p>
                 </div>
 
-                <!-- Grid de Cards de Autoridade estruturado com assimetria e hierarquia -->
-                <div class="authority-grid">
-                    <!-- Card 01 - Destaque Principal -->
-                    <div class="authority-card authority-card--featured fade-up">
+                <div class="grid-2">
+                    <!-- Layered Parallax Cards -->
+                    <div class="authority-card authority-card--featured reveal-up js-parallax" data-speed="0.05">
                         <div class="authority-card__badge">MARCO DE CARREIRA</div>
                         <div class="authority-card__big-num">20+</div>
                         <h3>Mais de 20 anos de estrada</h3>
@@ -665,34 +666,28 @@
                         </p>
                     </div>
 
-                    <!-- Card 02 - SBT -->
-                    <div class="authority-card fade-up">
+                    <div class="authority-card reveal-up js-parallax" data-speed="-0.02" style="transition-delay: 0.1s">
                         <div class="authority-card__media-tag">TELEVISÃO</div>
                         <div class="authority-card__brand">SBT</div>
                         <p>Experiência e apresentações em rede nacional em uma das principais emissoras de
-                            entretenimento
-                            do país.</p>
+                            entretenimento do país.</p>
                     </div>
 
-                    <!-- Card 03 - Máquina da Fama -->
-                    <div class="authority-card fade-up">
+                    <div class="authority-card reveal-up js-parallax" data-speed="0.04" style="transition-delay: 0.2s">
                         <div class="authority-card__media-tag">TELEVISÃO</div>
                         <div class="authority-card__brand">MÁQUINA DA FAMA</div>
                         <p>Presença artística em formato de grande audiência, atestando versatilidade e rigor de
                             interpretação.</p>
                     </div>
 
-                    <!-- Card 04 - Programa do Ratinho -->
-                    <div class="authority-card fade-up">
+                    <div class="authority-card reveal-up js-parallax" data-speed="-0.03" style="transition-delay: 0.3s">
                         <div class="authority-card__media-tag">TELEVISÃO</div>
                         <div class="authority-card__brand">RATINHO</div>
                         <p>Participação ao vivo em programa de expressão nacional com alto padrão de audiência e
-                            exigência
-                            técnica.</p>
+                            exigência técnica.</p>
                     </div>
 
-                    <!-- Card 05 - Ídolos -->
-                    <div class="authority-card fade-up">
+                    <div class="authority-card reveal-up js-parallax" data-speed="0.02" style="transition-delay: 0.4s">
                         <div class="authority-card__media-tag">TELEVISÃO</div>
                         <div class="authority-card__brand">ÍDOLOS</div>
                         <p>Reconhecimento vocal e validação artística em uma das maiores vitrines de talentos da música
@@ -704,17 +699,16 @@
 
 
         <!-- =========================================================
-             08 — SEÇÃO CONVERSÃO (BOOKING, FORMULÁRIO, WHATSAPP & FAQ)
+             07 — SEÇÃO CONVERSÃO (BOOKING & FAQ)
         ========================================================== -->
-        <section class="booking-section" id="contato">
+        <section class="scene scene--booking" id="contato">
             <div class="container">
-                <div class="booking-wrapper">
-                    <!-- Cabeçalho de Conversão -->
-                    <div class="booking-intro fade-up">
+                <div class="grid-2">
+                    <div class="booking-intro reveal-up">
                         <span class="section-eyebrow">AGENDA ABERTA</span>
                         <h2 class="booking-title">
                             Sua data pode ser o<br>
-                            <span>próximo grande show.</span>
+                            <span class="highlight">próximo grande show.</span>
                         </h2>
                         <p class="booking-desc">
                             Consulte a disponibilidade para seu evento e receba atendimento direto com a produção da
@@ -723,16 +717,15 @@
 
                         <div class="direct-contact-box">
                             <span class="direct-contact-title">Atendimento Direto:</span>
-                            <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20banda%20Jhony%20%26%20Maura%20para%20meu%20evento."
-                                class="btn-whatsapp-direct" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/5537998087589" class="btn-whatsapp-direct" target="_blank"
+                                rel="noopener noreferrer">
                                 <span class="whatsapp-icon">💬</span>
                                 Falar diretamente pelo WhatsApp
                             </a>
                         </div>
                     </div>
 
-                    <!-- Formulário de Consulta de Data -->
-                    <div class="booking-card fade-up">
+                    <div class="booking-card reveal-up" style="transition-delay: 0.2s">
                         <h3 class="booking-card__title">Verificar Disponibilidade</h3>
                         <p class="booking-card__subtitle">Preencha os dados e receba resposta rápida:</p>
 
@@ -749,7 +742,6 @@
                                     <input type="tel" id="client-whatsapp" name="whatsapp" required
                                         placeholder="(11) 99999-9999">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="event-date">Data Prevista *</label>
                                     <input type="date" id="event-date" name="date" required>
@@ -762,7 +754,6 @@
                                     <input type="text" id="event-city" name="city" required
                                         placeholder="Ex: São Paulo - SP">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="event-type">Tipo de Evento</label>
                                     <select id="event-type" name="type">
@@ -791,61 +782,69 @@
                     </div>
                 </div>
 
-                <!-- FAQ Minimalista em Accordion -->
-                <div class="faq-section fade-up">
+                <div class="faq-section reveal-up">
                     <div class="faq-header">
                         <span class="section-eyebrow">DÚVIDAS FREQUENTES</span>
                         <h3 class="faq-title">Informações para Contratação</h3>
                     </div>
 
-                    <div class="faq-accordion">
-                        <details class="faq-item">
-                            <summary class="faq-question">
+                    <div class="faq-accordion js-accordion">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
                                 Com quanto tempo de antecedência devo reservar a data?
-                                <span class="faq-icon">+</span>
-                            </summary>
+                                <span class="faq-icon"></span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Como a banda atende celebrações exclusivas com montagem e alinhamento prévio, datas
-                                    de sábados e períodos de alta demanda costumam ser reservadas com meses de
-                                    antecedência. Recomendamos consultar a disponibilidade assim que definir a data do
-                                    seu evento.</p>
+                                <div class="faq-answer-inner">
+                                    <p>Como a banda atende celebrações exclusivas com montagem e alinhamento prévio,
+                                        datas de sábados e períodos de alta demanda costumam ser reservadas com meses de
+                                        antecedência. Recomendamos consultar a disponibilidade assim que definir a data
+                                        do seu evento.</p>
+                                </div>
                             </div>
-                        </details>
+                        </div>
 
-                        <details class="faq-item">
-                            <summary class="faq-question">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
                                 A banda atende eventos fora da cidade ou em outros estados?
-                                <span class="faq-icon">+</span>
-                            </summary>
+                                <span class="faq-icon"></span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Sim. A estrutura de Jhony & Maura viaja para diferentes regiões e cidades, com
-                                    logística coordenada previamente junto à produção do contratante ou cerimonial.</p>
+                                <div class="faq-answer-inner">
+                                    <p>Sim. A estrutura de Jhony & Maura viaja para diferentes regiões e cidades, com
+                                        logística coordenada previamente junto à produção do contratante ou cerimonial.
+                                    </p>
+                                </div>
                             </div>
-                        </details>
+                        </div>
 
-                        <details class="faq-item">
-                            <summary class="faq-question">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
                                 Como funciona o alinhamento com cerimonial e produção local?
-                                <span class="faq-icon">+</span>
-                            </summary>
+                                <span class="faq-icon"></span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Nossa equipe entra em contato com antecedência para alinhar cronograma, rider
-                                    técnico, horários de montagem, passagem de som e dinâmicas especiais da programação.
-                                </p>
+                                <div class="faq-answer-inner">
+                                    <p>Nossa equipe entra em contato com antecedência para alinhar cronograma, rider
+                                        técnico, horários de montagem, passagem de som e dinâmicas especiais da
+                                        programação.</p>
+                                </div>
                             </div>
-                        </details>
+                        </div>
 
-                        <details class="faq-item">
-                            <summary class="faq-question">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
                                 A banda pode fornecer sonorização e iluminação?
-                                <span class="faq-icon">+</span>
-                            </summary>
+                                <span class="faq-icon"></span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Dispomos de soluções completas de som e iluminação profissional adequadas ao porte do
-                                    local, ou podemos nos conectar à infraestrutura contratada para o evento sem
-                                    dificuldades técnicas.</p>
+                                <div class="faq-answer-inner">
+                                    <p>Dispomos de soluções completas de som e iluminação profissional adequadas ao
+                                        porte do local, ou podemos nos conectar à infraestrutura contratada para o
+                                        evento sem dificuldades técnicas.</p>
+                                </div>
                             </div>
-                        </details>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -857,44 +856,28 @@
     <!-- =========================================================
          FOOTER
     ========================================================== -->
-    <footer class="site-footer">
-        <div class="container footer-container">
-            <div class="footer-brand-col">
-                <a href="#inicio" class="footer-brand">
-                    JHONY <span>&</span> MAURA
-                </a>
-                <p class="footer-tagline">
-                    Música • Experiência • Emoção
-                </p>
-                <p class="footer-copy">
-                    © 2026 Jhony & Maura. Todos os direitos reservados.
-                </p>
-            </div>
+    <footer class="footer">
+        <div class="footer-start">
+            <a href="#inicio" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">
+                JHONY <span style="color: var(--color-primary);">&</span> MAURA
+            </a>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-2);">
+                © 2026 Jhony & Maura.
+            </p>
+        </div>
 
-            <div class="footer-nav-col">
-                <span class="footer-col-title">Navegação</span>
-                <nav class="footer-links">
-                    <a href="#inicio">O Show</a>
-                    <a href="#dupla">A Dupla</a>
-                    <a href="#experiencia">Experiência</a>
-                    <a href="#estrutura">Estrutura</a>
-                    <a href="#repertorio">Repertório</a>
-                    <a href="casamento.html">Casamentos</a>
-                    <a href="15-anos.html">15 Anos</a>
-                    <a href="#autoridade">Autoridade</a>
-                </nav>
-            </div>
+        <nav class="footer-center" style="gap: var(--space-4); flex-wrap: wrap;">
+            <a href="#inicio">O Show</a>
+            <a href="#a-dupla">A Dupla</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#estrutura">Estrutura</a>
+            <a href="casamento.html">Casamentos</a>
+            <a href="15-anos.html">15 Anos</a>
+        </nav>
 
-            <div class="footer-contact-col">
-                <span class="footer-col-title">Contato & Redes</span>
-                <div class="footer-social">
-                    <a href="https://instagram.com/jhonyemaura" target="_blank" rel="noopener noreferrer">Instagram
-                        (@jhonyemaura)</a>
-                    <a href="#contato">Consultar Agenda</a>
-                    <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20banda%20Jhony%20%26%20Maura."
-                        target="_blank" rel="noopener noreferrer">WhatsApp Oficial</a>
-                </div>
-            </div>
+        <div class="footer-end" style="gap: var(--space-4);">
+            <a href="https://www.instagram.com/jhonyemaura" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://wa.me/5537998087589" target="_blank" rel="noopener noreferrer" class="highlight">WhatsApp</a>
         </div>
     </footer>
 

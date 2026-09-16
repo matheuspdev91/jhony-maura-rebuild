@@ -11,6 +11,458 @@
     <link rel="stylesheet" href="../foundation/foundation.css">
 
     <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* ==========================================================
+   JHONY & MAURA — ESTILO EXCLUSIVO DAS PÁGINAS DE EVENTO
+   Aplicado somente em:
+   - casamento.html
+   - 15-anos.html
+   - corporativo.html
+
+   Não altera assets, conteúdo ou JavaScript.
+   ========================================================== */
+
+        .experience-page,
+        .experience-page * {
+            box-sizing: border-box;
+        }
+
+        .experience-page {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .experience-page img {
+            max-width: 100%;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        .experience-page__header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: min(1400px, calc(100% - 8vw));
+            min-height: 76px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: rgba(5, 5, 5, .94);
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .experience-page__back {
+            display: inline-flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: .9rem;
+            letter-spacing: .02em;
+            transition: color .3s ease, transform .3s ease;
+        }
+
+        .experience-page__back:hover {
+            color: #c8102e;
+            transform: translateX(-3px);
+        }
+
+        .experience-page__brand {
+            color: #fff;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* ---------- HERO / CAPA ---------- */
+
+        .experience-page__hero {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .experience-page__cover {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #080808;
+            border: 0;
+        }
+
+        .experience-page__cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg,
+                    rgba(0, 0, 0, .03) 0%,
+                    rgba(0, 0, 0, 0) 60%,
+                    rgba(5, 5, 5, .72) 100%);
+        }
+
+        .experience-page__cover img {
+            display: block;
+            width: 100% !important;
+            max-width: none !important;
+            height: auto !important;
+            margin: 0;
+            padding: 0;
+            object-fit: cover;
+            transform: scale(1.001);
+            transition: transform 1.4s cubic-bezier(.16, 1, .3, 1),
+                filter 1.2s ease;
+        }
+
+        .experience-page__cover:hover img {
+            transform: scale(1.015);
+        }
+
+        /* Casamento preserva integralmente a proporção da capa. */
+        .casamento-page .experience-page__cover img {
+            aspect-ratio: auto;
+            object-fit: contain;
+        }
+
+        /* 15 Anos e Corporativo usam capa panorâmica. */
+        .quinze-anos-page .experience-page__cover img,
+        .corporativo-page .experience-page__cover img {
+            aspect-ratio: 21 / 9;
+            object-fit: cover;
+        }
+
+        /* ---------- APRESENTAÇÃO ---------- */
+
+        .experience-page__presentation {
+            width: 100%;
+            margin: 0;
+            padding: clamp(72px, 9vw, 140px) 0 clamp(90px, 11vw, 160px);
+        }
+
+        .experience-page__intro {
+            width: min(1180px, calc(100% - 8vw));
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .experience-page__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            margin: 0 0 20px;
+            color: #c8102e;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .22em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .experience-page__eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: #c8102e;
+            opacity: .85;
+        }
+
+        .experience-page__title {
+            max-width: 950px;
+            margin: 0;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: clamp(3rem, 6.8vw, 7.2rem);
+            font-weight: 800;
+            line-height: .94;
+            letter-spacing: -.055em;
+        }
+
+        .experience-page__lead {
+            max-width: 760px;
+            margin: 28px 0 0;
+            color: rgba(255, 255, 255, .62);
+            font-size: clamp(1rem, 1.35vw, 1.2rem);
+            line-height: 1.75;
+        }
+
+        /* ---------- EXPERIÊNCIA ---------- */
+
+        .experience-page__experience {
+            width: 100%;
+            margin: 0;
+            padding: 0 0 clamp(100px, 12vw, 180px);
+        }
+
+        .experience-page__experience-content {
+            width: min(1180px, calc(100% - 8vw));
+            margin: 0 auto clamp(50px, 6vw, 90px);
+            padding: 0;
+        }
+
+        .experience-page__experience-content .experience-page__title {
+            font-size: clamp(2.8rem, 5.5vw, 6rem);
+        }
+
+        .experience-page__experience-content .experience-page__lead {
+            max-width: 720px;
+        }
+
+        /* ---------- IMAGEM DE EXPERIÊNCIA ---------- */
+
+        .event-media-system,
+        .experience-page__media {
+            width: min(1400px, calc(100% - 8vw));
+            margin: 0 auto;
+        }
+
+        .event-media-system {
+            display: flex;
+            justify-content: center;
+        }
+
+        .event-media__frame {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #0b0b0b;
+            border: 1px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, .45);
+        }
+
+        .event-media__frame::after,
+        .experience-page__media-item::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: #c8102e;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s ease;
+        }
+
+        .event-media__frame:hover::after,
+        .experience-page__media-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .event-media__frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(.16, 1, .3, 1),
+                filter 1s ease;
+        }
+
+        .event-media__frame:hover img {
+            transform: scale(1.025);
+            filter: saturate(1.05) contrast(1.03);
+        }
+
+        /* 15 Anos: exatamente duas folhas lado a lado no desktop. */
+        .quinze-anos-page .experience-page__media {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(16px, 2vw, 28px);
+        }
+
+        .quinze-anos-page .experience-page__media-item {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #0b0b0b;
+            border: 1px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .42);
+        }
+
+        .quinze-anos-page .experience-page__media-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(.16, 1, .3, 1),
+                filter 1s ease;
+        }
+
+        .quinze-anos-page .experience-page__media-item:hover img {
+            transform: scale(1.025);
+            filter: saturate(1.05) contrast(1.03);
+        }
+
+        /* ---------- FECHAMENTO ---------- */
+
+        .experience-page__closing {
+            width: min(900px, calc(100% - 8vw));
+            margin: 0 auto;
+            padding: 0 0 clamp(100px, 12vw, 170px);
+            text-align: center;
+        }
+
+        .experience-page__closing .experience-page__eyebrow {
+            justify-content: center;
+        }
+
+        .experience-page__closing p {
+            max-width: 680px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, .62);
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            line-height: 1.75;
+        }
+
+        .experience-page__closing .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 999px;
+            background: #c8102e;
+            color: #050505;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .experience-page__closing .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(200, 16, 46, .16);
+        }
+
+        /* ---------- CORPORATIVO ---------- */
+
+        .corporativo-page .experience-page__cover {
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+        }
+
+        .corporativo-page .event-media__frame {
+            border-color: rgba(255, 255, 255, .14);
+        }
+
+        /* ---------- RESPONSIVO ---------- */
+
+        @media (max-width: 900px) {
+            .experience-page__header {
+                width: calc(100% - 8vw);
+            }
+
+            .experience-page__intro,
+            .experience-page__experience-content,
+            .event-media-system,
+            .experience-page__media,
+            .experience-page__closing {
+                width: calc(100% - 8vw);
+            }
+
+            .experience-page__presentation {
+                padding-top: 72px;
+                padding-bottom: 90px;
+            }
+
+            .experience-page__title {
+                font-size: clamp(2.7rem, 10vw, 5.5rem);
+            }
+        }
+
+        @media (max-width: 680px) {
+            .experience-page__header {
+                min-height: 68px;
+                width: calc(100% - 10vw);
+            }
+
+            .experience-page__brand {
+                font-size: .65rem;
+                letter-spacing: .1em;
+            }
+
+            .experience-page__back {
+                font-size: .82rem;
+            }
+
+            .experience-page__intro,
+            .experience-page__experience-content,
+            .event-media-system,
+            .experience-page__media,
+            .experience-page__closing {
+                width: calc(100% - 10vw);
+            }
+
+            .experience-page__presentation {
+                padding-top: 58px;
+                padding-bottom: 76px;
+            }
+
+            .experience-page__experience {
+                padding-bottom: 90px;
+            }
+
+            .experience-page__experience-content {
+                margin-bottom: 42px;
+            }
+
+            .experience-page__title,
+            .experience-page__experience-content .experience-page__title {
+                font-size: clamp(2.5rem, 13vw, 4.6rem);
+            }
+
+            .experience-page__lead {
+                margin-top: 22px;
+                font-size: 1rem;
+            }
+
+            .quinze-anos-page .experience-page__media {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .quinze-anos-page .experience-page__cover img,
+            .corporativo-page .experience-page__cover img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .casamento-page .experience-page__cover img {
+                aspect-ratio: auto;
+            }
+
+            .experience-page__closing {
+                padding-bottom: 90px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .experience-page *,
+            .experience-page *::before,
+            .experience-page *::after {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -111,21 +563,11 @@
             </div>
 
 
-            <div class="experience-page__media" style="display: block; width: min(94vw, 1600px); margin: 0 auto;">
-
-
-                <!-- =================================================
-                     FOTO 01
-                ================================================== -->
-
-                <figure class="experience-page__media-item" style="height: auto; background: transparent; border: none;">
-
+            <div class="event-media-system event-media-system--editorial">
+                <div class="event-media__frame">
                     <img src="../assets/corporativo/foto1.png"
-                        alt="Jhony & Maura em apresentação para evento corporativo" loading="lazy" style="display: block; width: 100%; height: auto; min-height: 0;">
-
-                </figure>
-
-
+                        alt="Jhony & Maura em apresentação para evento corporativo" loading="lazy">
+                </div>
             </div>
 
         </section>
@@ -162,8 +604,12 @@
 
     </main>
 
+    <!-- Anime.js -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
 
+    <!-- JavaScript principal -->
     <script src="../script.js"></script>
+
 
 </body>
 
