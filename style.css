@@ -2329,3 +2329,538 @@ body,
         transition: none !important;
     }
 }
+
+/* ==========================================================
+   JHONY & MAURA — MOBILE HEADER / MENU
+   ÚNICO SISTEMA DE ESTADO DO MENU
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .site-header {
+        height: 72px;
+        min-height: 72px;
+        padding: 0;
+    }
+
+    .header-container {
+        width: 100%;
+        height: 72px;
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    /* Navegação desktop */
+    .main-nav {
+        display: none !important;
+    }
+
+    /* CTA desktop */
+    .header-cta {
+        display: none !important;
+    }
+
+    /* Logo */
+    .brand {
+        position: relative;
+        z-index: 1201;
+
+        display: inline-flex;
+        align-items: center;
+
+        width: auto;
+        max-width: calc(100% - 64px);
+
+        margin: 0;
+        padding: 0;
+
+        font-size: clamp(18px, 5vw, 24px);
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    /* Área direita */
+    .header-actions {
+        position: relative;
+        z-index: 1201;
+
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    /* Hambúrguer */
+    .menu-toggle {
+        position: relative;
+        z-index: 1202;
+
+        display: flex !important;
+
+        width: 44px;
+        height: 44px;
+
+        flex-shrink: 0;
+
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    /*
+       MENU FECHADO
+       A classe usada pelo JS é SOMENTE .is-open.
+    */
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+
+        position: fixed;
+
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        height: calc(100dvh - 72px);
+
+        padding: 32px 24px;
+
+        z-index: 1100;
+
+        overflow-y: auto;
+
+        background: rgba(5, 5, 5, 0.98);
+
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity .3s ease,
+            visibility .3s ease,
+            transform .3s ease;
+    }
+
+    /*
+       MENU ABERTO
+       Não usamos .open.
+    */
+    .mobile-nav.is-open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .mobile-nav__links {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .mobile-link {
+        display: block;
+
+        width: 100%;
+
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+
+    .mobile-cta {
+        width: 100%;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header-container {
+        padding-inline: 16px;
+    }
+
+    .brand {
+        font-size: 19px;
+        letter-spacing: .04em;
+    }
+
+    .menu-toggle {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ==========================================================
+   JHONY & MAURA — RESPONSIVIDADE
+   NÃO ALTERA DESKTOP / HTML / JS
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    /* ---------- HEADER ---------- */
+
+    .topbar {
+        width: 100%;
+        min-width: 0;
+        height: 68px;
+        min-height: 68px;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .topbar-start {
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+
+    .topbar-start>a {
+        display: block;
+        max-width: calc(100vw - 80px);
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-size: clamp(18px, 5vw, 24px) !important;
+    }
+
+    /* Esconde somente a navegação desktop */
+    .topbar-center {
+        display: none !important;
+    }
+
+    .topbar-end {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Esconde "Consultar Agenda" do header */
+    .topbar-end .hide-for-small {
+        display: none !important;
+    }
+
+    /* Hamburger */
+    #menu-toggle {
+        display: flex !important;
+
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+
+        padding: 0;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+    }
+
+
+    /* ---------- MENU MOBILE ---------- */
+
+    #mobile-nav.sidebar {
+        position: fixed;
+
+        top: 68px;
+        left: 0;
+
+        width: min(320px, 86vw);
+        height: calc(100dvh - 68px);
+
+        z-index: 9999;
+
+        overflow-y: auto;
+
+        /*
+         * FECHADO POR PADRÃO.
+         * Não interfere no conteúdo da página.
+         */
+        transform: translateX(-110%);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+
+        transition:
+            transform .3s ease,
+            opacity .3s ease,
+            visibility .3s ease;
+    }
+
+    /*
+     * Só aparece quando o JS abrir o drawer.
+     */
+    #mobile-nav.sidebar.is-open,
+    #mobile-nav.sidebar.open {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .sidebar-link {
+        display: block;
+        width: 100%;
+    }
+
+
+    /* ---------- CONTEÚDO ---------- */
+
+    html,
+    body {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .smooth-scroll-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .scene {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-stage {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-container {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 20px;
+        box-sizing: border-box;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 14vw, 5rem);
+        line-height: .92;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    .hero-tags {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+
+    /* ---------- GRIDS ---------- */
+
+    .grid-2,
+    .duo-grid,
+    .duo-presentation-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pillars-grid-2x2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .formats-stack {
+        width: 100%;
+    }
+
+
+    /* ---------- FORMULÁRIO ---------- */
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .topbar {
+        padding-inline: 12px;
+    }
+
+    .topbar-start>a {
+        font-size: 18px !important;
+        letter-spacing: .06em;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .hero-container {
+        padding-inline: 16px;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+}
+
+/* ==========================================================
+   MOBILE — HERO
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .hero-container {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .hero-eyebrow {
+        max-width: 100%;
+        font-size: 0.72rem;
+        letter-spacing: 0.20em;
+        line-height: 1.6;
+    }
+
+    .hero-title {
+        width: 100%;
+        font-size: clamp(3rem, 14vw, 4.5rem);
+        line-height: .92;
+    }
+
+    .hero-subtitle {
+        width: 100%;
+        max-width: 330px;
+        margin: 1.2rem auto 0;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Tags */
+    .hero-tags {
+        width: 100%;
+        max-width: 330px;
+
+        margin: 1.5rem auto 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 8px 12px;
+
+        font-size: 0.72rem;
+        line-height: 1.5;
+        letter-spacing: .12em;
+    }
+
+    .tag-item {
+        white-space: nowrap;
+    }
+
+    .tag-separator {
+        flex: 0 0 auto;
+    }
+
+    /* Botões */
+    .hero-actions {
+        width: 100%;
+        max-width: 340px;
+
+        margin: 2rem auto 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 100%;
+
+        box-sizing: border-box;
+
+        justify-content: center;
+        text-align: center;
+
+        white-space: normal;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .hero-container {
+        padding-inline: 16px;
+    }
+
+    .hero-eyebrow {
+        font-size: .66rem;
+        letter-spacing: .16em;
+    }
+
+    .hero-tags {
+        max-width: 300px;
+        font-size: .68rem;
+        gap: 7px 9px;
+    }
+
+    .hero-actions {
+        max-width: 310px;
+    }
+}

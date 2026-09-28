@@ -4,6 +4,18 @@
         {
             "source": "/",
             "destination": "/html/home.html"
+        },
+        {
+            "source": "/casamento.html",
+            "destination": "/html/casamento.html"
+        },
+        {
+            "source": "/15-anos.html",
+            "destination": "/html/15-anos.html"
+        },
+        {
+            "source": "/corporativo.html",
+            "destination": "/html/corporativo.html"
         }
     ]
 }

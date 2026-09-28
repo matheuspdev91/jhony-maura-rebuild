@@ -37,7 +37,7 @@
             min-width: 0;
         }
 
-        .smooth-scroll-container > .scene {
+        .smooth-scroll-container>.scene {
             width: 100%;
         }
 
@@ -47,7 +47,7 @@
            global de Foundation/legacy de comprimir a seção.
            ===================================================== */
         @media (min-width: 1025px) {
-            .scene--formats > .container {
+            .scene--formats>.container {
                 display: block !important;
                 width: min(1800px, calc(100vw - 96px)) !important;
                 max-width: none !important;
@@ -141,7 +141,7 @@
         }
 
         @media (max-width: 1024px) {
-            .scene--formats > .container {
+            .scene--formats>.container {
                 width: calc(100% - 40px) !important;
                 max-width: none !important;
             }
@@ -161,7 +161,9 @@
     ========================================================== -->
     <header class="topbar" id="site-header">
         <div class="topbar-start">
-            <a href="#inicio" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;" aria-label="Jhony & Maura Home">
+            <a href="#inicio"
+                style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;"
+                aria-label="Jhony & Maura Home">
                 JHONY <span style="color: var(--color-primary);">&</span> MAURA
             </a>
         </div>
@@ -172,7 +174,7 @@
             <a href="home.html#experiencia">Experiência</a>
             <a href="home.html#estrutura">Estrutura</a>
             <a href="home.html#repertorio">Repertório</a>
-            
+
             <a href="casamento.html">Casamentos</a>
             <a href="15-anos.html">15 Anos</a>
             <a href="corporativo.html">Corporativo</a>
@@ -186,7 +188,8 @@
             </a>
 
             <!-- Mobile Toggle -->
-            <button class="btn btn-ghost btn-icon show-for-small" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav">
+            <button class="btn btn-ghost btn-icon show-for-small" id="menu-toggle" aria-label="Abrir menu"
+                aria-expanded="false" aria-controls="mobile-nav">
                 ☰
             </button>
         </div>
@@ -195,7 +198,9 @@
     <!-- Menu Mobile Drawer (FOUNDATION SIDEBAR) -->
     <div class="sidebar" id="mobile-nav" aria-hidden="true">
         <div class="sidebar-header">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">JHONY & MAURA</span>
+            <span
+                style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">JHONY
+                & MAURA</span>
         </div>
         <nav class="sidebar-nav">
             <a href="casamento.html" class="sidebar-link">Casamentos</a>
@@ -235,14 +240,6 @@
                         <p class="hero-subtitle reveal-up" style="transition-delay: 0.2s">
                             Música, presença e energia para fazer a noite acontecer.
                         </p>
-
-                        <div class="hero-tags reveal-up" style="transition-delay: 0.3s">
-                            <span class="tag-item">Banda Completa</span>
-                            <span class="tag-separator">•</span>
-                            <span class="tag-item">100% Ao Vivo</span>
-                            <span class="tag-separator">•</span>
-                            <span class="tag-item">Presença & Carisma</span>
-                        </div>
 
                         <div class="hero-actions reveal-up" style="transition-delay: 0.4s">
                             <a href="#contato" class="btn btn-primary">
@@ -303,7 +300,8 @@
                                     <span class="pillar-num">01</span>
                                     <h3>Afinação & Harmonia</h3>
                                 </div>
-                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do espetáculo.</p>
+                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
+                                    espetáculo.</p>
                             </div>
 
                             <div class="pillar-item">
@@ -311,7 +309,8 @@
                                     <span class="pillar-num">02</span>
                                     <h3>Versatilidade Musical</h3>
                                 </div>
-                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e gerações.</p>
+                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
+                                    gerações.</p>
                             </div>
 
                             <div class="pillar-item">
@@ -319,7 +318,8 @@
                                     <span class="pillar-num">03</span>
                                     <h3>Energia de Palco</h3>
                                 </div>
-                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.</p>
+                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.
+                                </p>
                             </div>
 
                             <div class="pillar-item">
@@ -345,7 +345,7 @@
         <section class="scene scene--formats" id="formatos">
             <div class="container">
                 <div class="duo-presentation-grid">
-                    
+
                     <!-- LEFT COLUMN -->
                     <div class="duo-presentation-left">
                         <h2 class="duo-presentation-title reveal-up">
@@ -357,19 +357,22 @@
                             <div class="premium-card reveal-up" style="transition-delay: 0.1s">
                                 <span class="premium-card__num">01</span>
                                 <h3>Afinação & Harmonia</h3>
-                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do espetáculo.</p>
+                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
+                                    espetáculo.</p>
                             </div>
 
                             <div class="premium-card reveal-up" style="transition-delay: 0.2s">
                                 <span class="premium-card__num">02</span>
                                 <h3>Versatilidade Musical</h3>
-                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e gerações.</p>
+                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
+                                    gerações.</p>
                             </div>
 
                             <div class="premium-card reveal-up" style="transition-delay: 0.3s">
                                 <span class="premium-card__num">03</span>
                                 <h3>Energia de Palco</h3>
-                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.</p>
+                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.
+                                </p>
                             </div>
 
                             <div class="premium-card reveal-up" style="transition-delay: 0.4s">
@@ -386,14 +389,14 @@
                             <span class="format-badge">COMPACTA</span>
                             <h3>BANDA COMPACTA</h3>
                             <p class="format-subtitle">Ideal para eventos de pequeno e médio porte</p>
-                            
+
                             <ul class="format-specs">
                                 <li><span class="spec-num">2</span> vocalistas</li>
                                 <li><span class="spec-num">2</span> músicos</li>
                                 <li><span class="spec-num">1</span> produtor</li>
                                 <li><span class="spec-num">1</span> roadie</li>
                             </ul>
-                            
+
                             <a href="#contato" class="btn btn-pill-red">CONSULTAR AGENDA →</a>
                         </div>
 
@@ -401,15 +404,16 @@
                             <span class="format-badge">COMPLETA</span>
                             <h3>BANDA COMPLETA</h3>
                             <p class="format-subtitle">Ideal para grandes eventos e celebrações</p>
-                            
+
                             <ul class="format-specs">
                                 <li><span class="spec-num">2</span> vocalistas</li>
-                                <li><span class="spec-num">3</span> músicos: bateria, guitarra e baixo (um extra: sanfona ou percussão)</li>
+                                <li><span class="spec-num">3</span> músicos: bateria, guitarra e baixo (um extra:
+                                    sanfona ou percussão)</li>
                                 <li><span class="spec-num">2</span> dançarinos (se necessário)</li>
                                 <li><span class="spec-num">1</span> produtor</li>
                                 <li><span class="spec-num">1</span> roadie</li>
                             </ul>
-                            
+
                             <a href="#contato" class="btn btn-pill-red">CONSULTAR AGENDA →</a>
                         </div>
                     </div>
@@ -424,7 +428,7 @@
         ========================================================== -->
         <section class="scene scene--experience" id="experiencia">
             <div class="container">
-                
+
                 <div class="section-header">
                     <span class="section-eyebrow">A EXPERIÊNCIA DO SHOW</span>
                     <h2 class="section-title">
@@ -432,7 +436,8 @@
                         O show cresce.
                     </h2>
                     <p class="section-subtitle">
-                        Mais do que uma lista de músicas, o show possui uma narrativa dinâmica que acompanha a temperatura dos convidados.
+                        Mais do que uma lista de músicas, o show possui uma narrativa dinâmica que acompanha a
+                        temperatura dos convidados.
                     </p>
                 </div>
 
@@ -474,7 +479,8 @@
                                     <img src="../assets/shows/fot1.png" alt="Música ao vivo sem pausas" loading="lazy">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../assets/shows/foto3.png" alt="Show ao vivo com efeitos pirotécnicos" loading="lazy">
+                                    <img src="../assets/shows/foto3.png" alt="Show ao vivo com efeitos pirotécnicos"
+                                        loading="lazy">
                                 </div>
                             </div>
                             <div class="carousel-indicators js-carousel-indicators">
@@ -858,7 +864,8 @@
     ========================================================== -->
     <footer class="footer">
         <div class="footer-start">
-            <a href="#inicio" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <a href="#inicio"
+                style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">
                 JHONY <span style="color: var(--color-primary);">&</span> MAURA
             </a>
             <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-2);">
@@ -877,7 +884,8 @@
 
         <div class="footer-end" style="gap: var(--space-4);">
             <a href="https://www.instagram.com/jhonyemaura" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://wa.me/5537998087589" target="_blank" rel="noopener noreferrer" class="highlight">WhatsApp</a>
+            <a href="https://wa.me/5537998087589" target="_blank" rel="noopener noreferrer"
+                class="highlight">WhatsApp</a>
         </div>
     </footer>
 
