@@ -141,6 +141,7 @@ html {
 }
 
 .scene--hero {
+    position: relative;
     padding: 0;
     margin-bottom: 0;
 }
@@ -260,17 +261,21 @@ html {
 
 /* A base do hero respira para a próxima área; não cria uma faixa escura. */
 .scene--hero::after {
-    content: '';
+    content: "";
     position: absolute;
-    left: -12%;
-    right: -12%;
-    bottom: -2.5rem;
-    height: clamp(4rem, 8vw, 7rem);
-    z-index: 4;
+    z-index: 10;
+
+    left: 0;
+    right: 0;
+    bottom: -60px;
+
+    height: 60px;
+
     pointer-events: none;
-    background:
-        radial-gradient(ellipse 62% 75% at 50% 10%, rgba(124, 24, 22, 0.16) 0%, rgba(85, 16, 15, 0.07) 42%, transparent 78%);
-    filter: blur(18px);
+
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.08),
+            #000 100%);
 }
 
 .hero-container {
@@ -3646,11 +3651,218 @@ body,
     .scene--hero::after {
         bottom: -42px;
         height: 42px;
+    }
+}
 
-        background: linear-gradient(to bottom,
-                rgba(0, 0, 0, 0.15),
-                #000);
+.scene--hero::after {
+    bottom: -42px;
+    height: 42px;
 
-        filter: none;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.15),
+            #000);
+
+    filter: none;
+}
+
+/* ==========================================================
+   FINAL PASS — HERO → A DUPLA
+   Respiro + transição cinematográfica.
+   Não altera estrutura, assets, componentes ou JS existentes.
+   ========================================================== */
+
+.scene--hero {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+
+/* Final suave do hero: nada de linha dura entre as cenas. */
+.scene--hero::after {
+    content: "";
+    position: absolute;
+    z-index: 8;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: clamp(28px, 4vw, 64px);
+    pointer-events: none;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(3, 1, 1, 0) 0%,
+            rgba(3, 1, 1, .55) 48%,
+            rgba(3, 1, 1, .96) 100%);
+
+    filter: none;
+}
+
+/* Respiro real entre Hero e A DUPLA. */
+.scene--hero+.scene.duo-section,
+.scene--hero+.scene.duo-cinematic-section {
+    margin-top: clamp(42px, 5vw, 82px) !important;
+}
+
+/* Compatibilidade caso exista um marquee entre Hero e A DUPLA. */
+.scene--hero+.marquee-track+.scene.duo-section,
+.scene--hero+.marquee-track+.scene.duo-cinematic-section {
+    margin-top: clamp(42px, 5vw, 82px) !important;
+}
+
+/* Atmosfera discreta no espaço de transição. */
+.scene--hero+.scene.duo-section::before,
+.scene--hero+.scene.duo-cinematic-section::before,
+.scene--hero+.marquee-track+.scene.duo-section::before,
+.scene--hero+.marquee-track+.scene.duo-cinematic-section::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: -42px;
+    height: 84px;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse 42% 70% at 50% 50%,
+            rgba(124, 24, 22, .12) 0%,
+            rgba(53, 8, 7, .06) 38%,
+            transparent 76%);
+
+    filter: blur(18px);
+}
+
+/* ==========================================================
+   A DUPLA CINEMATOGRÁFICA — DESKTOP / MOBILE
+   ========================================================== */
+
+.duo-cinematic-desktop {
+    display: block;
+}
+
+.duo-cinematic-mobile {
+    display: none;
+}
+
+.duo-cinematic-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .scene--hero {
+        margin-bottom: 0 !important;
+    }
+
+    .scene--hero::after {
+        height: 34px;
+        bottom: -1px;
+
+        background:
+            linear-gradient(to bottom,
+                rgba(3, 1, 1, 0) 0%,
+                rgba(3, 1, 1, .72) 55%,
+                #030101 100%);
+    }
+
+    .scene--hero+.scene.duo-section,
+    .scene--hero+.scene.duo-cinematic-section,
+    .scene--hero+.marquee-track+.scene.duo-section,
+    .scene--hero+.marquee-track+.scene.duo-cinematic-section {
+        margin-top: 28px !important;
+    }
+
+    .scene--hero+.scene.duo-section::before,
+    .scene--hero+.scene.duo-cinematic-section::before,
+    .scene--hero+.marquee-track+.scene.duo-section::before,
+    .scene--hero+.marquee-track+.scene.duo-cinematic-section::before {
+        top: -24px;
+        height: 48px;
+        left: 4%;
+        right: 4%;
+        filter: blur(14px);
+    }
+
+    /* Se o HTML possuir o asset mobile, ele assume automaticamente. */
+    .duo-cinematic-desktop {
+        display: none;
+    }
+
+    .duo-cinematic-mobile {
+        display: block;
+        width: 100%;
+        line-height: 0;
+    }
+
+    .duo-cinematic-mobile .duo-cinematic-image,
+    .duo-cinematic-mobile img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+/* ==========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scene--hero+.scene.duo-section,
+    .scene--hero+.scene.duo-cinematic-section,
+    .scene--hero+.marquee-track+.scene.duo-section,
+    .scene--hero+.marquee-track+.scene.duo-cinematic-section {
+        margin-top: 32px !important;
+    }
+}
+
+/* ==========================================================
+   FINAL — A DUPLA / MOBILE ASSET APROVADO
+   Não altera o desktop.
+   Não altera o asset.
+   ========================================================== */
+
+.duo-cinematic-mobile {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .duo-cinematic-desktop {
+        display: none !important;
+    }
+
+    .duo-cinematic-mobile {
+        display: block !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+        background: #050203;
+    }
+
+    .duo-cinematic-mobile .duo-cinematic-image {
+        display: block !important;
+        width: 100%;
+        height: auto;
+        max-width: none;
+        margin: 0;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    /* O respiro continua sendo controlado pela transição,
+       não por uma faixa preta inserida dentro da arte. */
+    .scene--hero+.scene.duo-cinematic-section {
+        margin-top: 28px !important;
     }
 }
