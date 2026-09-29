@@ -152,6 +152,21 @@
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
     </script>
+
+    <style>
+        .duo-cinematic-picture {
+            display: block;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .duo-cinematic-picture img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -265,69 +280,81 @@
         <!-- =========================================================
              02 — SEÇÃO QUEM SÃO (A DUPLA)
         ========================================================== -->
-        <section class="scene duo-section" id="a-dupla">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">A DUPLA</span>
-                    <h2 class="section-title">
-                        Dois artistas. Uma identidade.<br>
-                        Um show pensado para conectar pessoas.
-                    </h2>
-                </div>
+        <section class="scene duo-section duo-cinematic-section" id="a-dupla">
+            <!--
+                Composição cinematográfica final da seção A DUPLA.
+                Desktop: usa o asset final aprovado.
+                Mobile: mantém uma versão semântica do conteúdo original,
+                pois o texto incorporado na arte não seria legível em telas pequenas.
+            -->
+            <div class="duo-cinematic-desktop" aria-label="Apresentação da dupla e seus diferenciais">
+                <picture class="duo-cinematic-picture">
+                    <source media="(max-width: 700px)" srcset="../assets/a-dupla-cinematic-mobile-v2.png"><img
+                        src="../assets/a-dupla-cinematic.png"
+                        alt="Dois artistas em uma atmosfera de palco com luzes vermelhas, fumaça e os principais diferenciais do espetáculo."
+                        class="duo-cinematic-image" loading="lazy">
+                </picture>
+            </div>
 
-                <div class="duo-grid">
-                    <div class="duo-media reveal-up">
-                        <div class="duo-image-wrapper">
-                            <img src="../assets/J&M.png" alt="Jhony & Maura no palco" class="duo-image" loading="lazy">
-                            <div class="duo-image-caption">
-                                <span class="caption-tag">Ao Vivo</span>
-                                <span class="caption-text">Jhony & Maura</span>
-                            </div>
-                        </div>
+            <div class="duo-cinematic-mobile">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-eyebrow">A DUPLA</span>
+                        <h2 class="section-title">
+                            Dois artistas. Uma identidade.<br>
+                            Um show pensado para conectar pessoas.
+                        </h2>
                     </div>
 
-                    <div class="duo-content reveal-up">
-                        <p class="duo-lead">
-                            A harmonia vocal entre Jhony e Maura é o coração de um espetáculo vibrante e
-                            envolvente. Com cumplicidade de palco e carisma contagiante, a dupla transforma cada
-                            apresentação em um momento marcante onde a plateia não é apenas espectadora: ela canta,
-                            vibra e participa ativamente.
-                        </p>
-
-                        <div class="pillars-list">
-                            <div class="pillar-item">
-                                <div class="pillar-header">
-                                    <span class="pillar-num">01</span>
-                                    <h3>Afinação & Harmonia</h3>
-                                </div>
-                                <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
-                                    espetáculo.</p>
+                    <div class="duo-grid">
+                        <div class="duo-media reveal-up">
+                            <div class="duo-image-wrapper">
+                                <img src="../assets/J&M.png" alt="Dupla em apresentação" class="duo-image"
+                                    loading="lazy">
                             </div>
+                        </div>
 
-                            <div class="pillar-item">
-                                <div class="pillar-header">
-                                    <span class="pillar-num">02</span>
-                                    <h3>Versatilidade Musical</h3>
-                                </div>
-                                <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
-                                    gerações.</p>
-                            </div>
+                        <div class="duo-content reveal-up">
+                            <p class="duo-lead">
+                                A harmonia vocal é o coração de um espetáculo vibrante e envolvente.
+                                Com cumplicidade de palco e carisma contagiante, a dupla transforma cada
+                                apresentação em um momento marcante onde a plateia não é apenas espectadora:
+                                ela canta, vibra e participa ativamente.
+                            </p>
 
-                            <div class="pillar-item">
-                                <div class="pillar-header">
-                                    <span class="pillar-num">03</span>
-                                    <h3>Energia de Palco</h3>
+                            <div class="pillars-list">
+                                <div class="pillar-item">
+                                    <div class="pillar-header">
+                                        <span class="pillar-num">01</span>
+                                        <h3>Afinação & Harmonia</h3>
+                                    </div>
+                                    <p>Vozes que se complementam e sustentam com precisão cada dinâmica e emoção do
+                                        espetáculo.</p>
                                 </div>
-                                <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao fim.
-                                </p>
-                            </div>
-
-                            <div class="pillar-item">
-                                <div class="pillar-header">
-                                    <span class="pillar-num">04</span>
-                                    <h3>Conexão Humana</h3>
+                                <div class="pillar-item">
+                                    <div class="pillar-header">
+                                        <span class="pillar-num">02</span>
+                                        <h3>Versatilidade Musical</h3>
+                                    </div>
+                                    <p>Capacidade artística de transitar com maestria por diferentes estilos, ritmos e
+                                        gerações.</p>
                                 </div>
-                                <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.</p>
+                                <div class="pillar-item">
+                                    <div class="pillar-header">
+                                        <span class="pillar-num">03</span>
+                                        <h3>Energia de Palco</h3>
+                                    </div>
+                                    <p>Presença contagiante que impulsiona a noite e faz a pista crescer do início ao
+                                        fim.</p>
+                                </div>
+                                <div class="pillar-item">
+                                    <div class="pillar-header">
+                                        <span class="pillar-num">04</span>
+                                        <h3>Conexão Humana</h3>
+                                    </div>
+                                    <p>Interação genuína com os convidados, criando uma atmosfera calorosa e acolhedora.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
